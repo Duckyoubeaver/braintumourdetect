@@ -16,18 +16,18 @@ const AccountDropdown = () => {
     <div className="relative">
       <button
         onClick={toggleDropdown}
-        className="text-sm focus:outline-none py-1" // Removed bg-gray-200
+        className={`${s.link} text-sm`} // Removed bg-gray-200
         aria-label="Account"
       >
         Account
       </button>
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-56 bg-black border border-gray-300 rounded-md shadow-lg text-white">
+        <div className="absolute right-0 mt-2 w-56 bg-white border border-gray-300 rounded-md shadow-lg text-white">
           {' '}
           {/* Changed background to black and text color to white */}
           <div className="py-10 flex items-center justify-center">
             <SignOutButton />
-            <button className={`${s.link} text-sm `}>Upgrade</button>
+            <button className={`${s.link}`}>Upgrade</button>
           </div>
         </div>
       )}
