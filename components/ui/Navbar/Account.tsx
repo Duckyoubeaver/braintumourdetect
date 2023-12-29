@@ -27,7 +27,7 @@ const AccountDropdown = () => {
           {/* Changed background to black and text color to white */}
           <div className="py-10 flex items-center justify-center">
             <SignOutButton />
-            <button className={`${s.link}`}>Upgrade</button>
+            <button className={`${s.link} text-sm`}>Upgrade</button>
           </div>
         </div>
       )}

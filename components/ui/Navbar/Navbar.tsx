@@ -14,22 +14,31 @@ export default async function Navbar() {
   } = await supabase.auth.getUser();
 
   return (
-    <nav className="sticky top-0 z-40 bg-white text-black transition-all duration-150">
+    <nav className="sticky top-0 z-40 bg-white text-black transition-all duration-150 position:fixed">
       <a href="#skip" className="sr-only focus:not-sr-only">
         Skip to content
       </a>
-      <div className="max-w-8xl px-6 mx-auto">
-        {/* New section above existing elements */}
-        <div className="flex justify-between py-5 align-center">
+      <div className="w-screen  mx-auto">
+        <div className=" px-6 flex justify-between py-2">
           <div className="flex items-center">
             <span className={`${s.link} text-sm organization-name`}>
               Organization Name
             </span>
           </div>
           <div className="flex items-center space-x-4">
-            <input type="text" placeholder="Search" className={`${s.search}`} />
+            {/* <input type="text" placeholder="Search" className={`${s.search}`} /> */}
+            <div className={`${s.searchContainer}`}>
+              <input
+                type="text"
+                placeholder="Search..."
+                className={`${s.search}`}
+              />
+              <div className={`${s.iconContainer}`}>
+                <span className={`${s.commandIcon}`}>⌘ K</span>
+              </div>
+            </div>
 
-            <button className={`${s.link} text-sm`}>Feedback</button>
+            <button className={`${s.feedback} text-sm`}>Feedback</button>
 
             <div className="flex justify-end flex-1 space-x-8">
               {user ? (
@@ -42,7 +51,8 @@ export default async function Navbar() {
             </div>
           </div>
         </div>
-        <div className="relative flex flex-row justify-between py-2 align-center md:py-3 bg">
+        <hr className="h-px my-1 bg-gray-200 border-0 dark:bg-gray-700 mx-auto w-full" />
+        <div className="px-6 relative flex flex-row justify-between py-2 align-center md:py-2 bg">
           <div className="flex items-center flex-1">
             <Link href="/" className={`${s.logo} text-sm`} aria-label="Logo">
               <Logo />
@@ -55,7 +65,7 @@ export default async function Navbar() {
               )}
               {user && (
                 <Link href="/account" className={`${s.link} text-sm`}>
-                  Analytics
+                  Insights
                 </Link>
               )}
               {user && (

@@ -4,7 +4,7 @@
 } */
 
 .link {
-  @apply inline-flex cursor-pointer items-center rounded-md p-1 font-medium leading-6 text-black transition duration-75 ease-in-out; /* Set text color to black */
+  @apply inline-flex cursor-pointer items-center rounded-md p-1 font-medium leading-6 text-gray-700 transition duration-75 ease-in-out;
 }
 
 .link:hover {
@@ -14,7 +14,7 @@
 }
 
 .link:focus {
-  @apply text-white outline-none ring-2 ring-transparent ring-opacity-50;
+  @apply text-black outline-none ring-2 ring-transparent ring-opacity-50;
 }
 
 .logo {
@@ -22,8 +22,14 @@
 }
 
 /* New styles for search input */
+
+.searchContainer {
+  position: relative;
+  display: flex;
+}
+
 .search {
-  border-radius: 0.375rem; /* Equivalent to rounded-md */
+  border-radius: 0.2rem; /* Equivalent to rounded-md */
   background-color: rgb(242, 242, 242); /* Light grey background */
   padding: 0.5rem; /* Increased padding */
   font-size: 0.8125rem; /* Decreased font size */
@@ -33,11 +39,39 @@
   width: 200px; /* Adjust the width as needed */
 }
 
-.search:hover {
-  border-radius: 0.25rem; /* Equivalent to hover:rounded-md */
+.iconContainer {
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.commandIcon {
+  background-color: #ffffff; /* Background color for the icon */
+  color: #000000; /* Black text color */
+  border: 1px solid rgb(223, 223, 223); /* Grey border */
+  border-radius: 0.25rem; /* Rounded corners */
+  padding: 0.2rem; /* Adjust padding as needed */
+  margin-left: 0.2rem; /* Adjust margin as needed */
+  font-size: 12px;
+  text-align: center;
+  width: 3em;
 }
 
 /* Make Organization Name black and bold */
 .organization-name {
   @apply font-bold text-black;
+}
+
+.feedback {
+  @apply inline-flex cursor-pointer items-center rounded-sm p-2 font-medium leading-6 text-gray-600 transition ease-in-out;
+  background-color: rgb(191, 248, 82);
+}
+
+.feedback:hover {
+  background-color: rgb(200, 255, 100);
+  transition: background-color 0.2s ease-in-out; /* Decreased duration */
 }
