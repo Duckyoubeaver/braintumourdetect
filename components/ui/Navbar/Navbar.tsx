@@ -2,6 +2,8 @@ import AccountDropdown from './Account';
 import s from './Navbar.module.css';
 import { createServerSupabaseClient } from '@/app/supabase-server';
 import Logo from '@/components/icons/Logo';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 
 //Use server component here, but where client side interaction is needded use a client component
@@ -19,9 +21,9 @@ export default async function Navbar() {
         Skip to content
       </a>
       <div className="w-screen  mx-auto">
-        <div className="px-6 flex justify-between pt-1">
+        <div className="px-6 flex justify-between py-1">
           <div className="flex items-center">
-            <span className={`${s.link} text-sm p-2 organization-name`}>
+            <span className={`${s.link} text-md p-2 organization-name`}>
               <Link
                 href="/"
                 className={`${s.logo} text-sm mr-3 `}
@@ -62,20 +64,21 @@ export default async function Navbar() {
         </div>
         <hr className="h-px my-1 bg-gray-200 border-0 dark:bg-gray-700 mx-auto w-full" />
         <div
-          className={`top-0 sticky px-6 relative flex flex-row justify-between py-0 align-center md:py-0 bg`}
+          className={`top-0 sticky px-6 relative flex flex-row justify-between py-1 align-center md:py-1 bg`}
         >
           <div className="flex items-center flex-1">
             <div className="hidden space-x-2 lg:block">
+              <FontAwesomeIcon icon={faArrowRight} />
               {user && (
                 <Link href="/overview" className={`${s.link} text-sm`}>
-                  Overview
+                  Summary
                 </Link>
               )}
-              {user && (
+              {/* {user && (
                 <Link href="/reporting" className={`${s.link} text-sm`}>
                   Reports
                 </Link>
-              )}
+              )} */}
               {user && (
                 <Link href="/data" className={`${s.link} text-sm`}>
                   Data Sources
