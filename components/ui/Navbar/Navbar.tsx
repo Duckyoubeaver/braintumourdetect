@@ -1,6 +1,5 @@
 import AccountDropdown from './Account';
 import s from './Navbar.module.css';
-import SignOutButton from './SignOutButton';
 import { createServerSupabaseClient } from '@/app/supabase-server';
 import Logo from '@/components/icons/Logo';
 import Link from 'next/link';
@@ -14,12 +13,12 @@ export default async function Navbar() {
   } = await supabase.auth.getUser();
 
   return (
-    <nav className="sticky top-0 z-40 bg-white text-black transition-all duration-150 fixed">
+    <nav className=" sticky top-0 z-40 bg-white text-black transition-all duration-150">
       <a href="#skip" className="sr-only focus:not-sr-only">
         Skip to content
       </a>
       <div className="w-screen  mx-auto">
-        <div className=" px-6 flex justify-between py-2">
+        <div className="px-6 flex justify-between pt-1">
           <div className="flex items-center">
             <span className={`${s.link} text-sm p-2 organization-name`}>
               <Link
@@ -32,8 +31,8 @@ export default async function Navbar() {
               Company Name
             </span>
           </div>
+
           <div className="flex items-center space-x-4">
-            {/* <input type="text" placeholder="Search" className={`${s.search}`} /> */}
             <div className={`${s.searchContainer}`}>
               <input
                 type="text"
@@ -59,7 +58,9 @@ export default async function Navbar() {
           </div>
         </div>
         <hr className="h-px my-1 bg-gray-200 border-0 dark:bg-gray-700 mx-auto w-full" />
-        <div className="px-6 relative flex flex-row justify-between py-2 align-center md:py-2 bg">
+        <div
+          className={`top-0 sticky px-6 relative flex flex-row justify-between py-0 align-center md:py-0 bg`}
+        >
           <div className="flex items-center flex-1">
             <div className="hidden space-x-2 lg:block">
               {user && (

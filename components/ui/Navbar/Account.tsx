@@ -23,7 +23,7 @@ const AccountDropdown = () => {
         Account
       </button>
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-56 bg-white border border-gray-300 rounded-md shadow-lg text-white">
+        <div className="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg text-white">
           {' '}
           {/* Changed background to black and text color to white */}
           <div className="py-10 flex items-center justify-center">

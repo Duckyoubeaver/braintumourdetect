@@ -1,8 +1,3 @@
-/* Navbar.module.css */
-/* .root {
-  @apply sticky top-0 z-40 h-16 bg-white text-black transition-all duration-150 md:h-20;
-} */
-
 .link {
   @apply inline-flex cursor-pointer items-center rounded-md p-2 font-medium leading-6 text-black transition duration-75 ease-in-out;
 }
@@ -68,11 +63,12 @@
 
 .feedback {
   @apply inline-flex cursor-pointer items-center rounded-sm p-2 font-medium leading-6 text-black transition ease-in-out;
-  background-color: rgb(191, 248, 82);
+  background-color: rgb(232, 255, 60);
   padding: 0.5rem; /* Match the padding with the search input */
 }
 
 .feedback:hover {
-  background-color: rgb(200, 255, 100);
-  transition: background-color 0.2s ease-in-out;
+  background-color: rgb(229, 253, 71);
+
+  transition: background-color 0.3s ease-in-out;
 }
