@@ -14,6 +14,7 @@ export default async function Navbar() {
 
   return (
     <nav className=" sticky top-0 z-40 bg-white text-black transition-all duration-150">
+      {/* <nav className="bg-white text-black transition-all duration-150"> */}
       <a href="#skip" className="sr-only focus:not-sr-only">
         Skip to content
       </a>
@@ -28,12 +29,12 @@ export default async function Navbar() {
               >
                 <Logo />
               </Link>
-              Company Name
+              Organisation Name
             </span>
           </div>
 
           <div className="flex items-center space-x-4">
-            <div className={`${s.searchContainer}`}>
+            {/* <div className={`${s.searchContainer}`}>
               <input
                 type="text"
                 placeholder="Search..."
@@ -42,9 +43,11 @@ export default async function Navbar() {
               <div className={`${s.iconContainer}`}>
                 <span className={`${s.commandIcon}`}>⌘ K</span>
               </div>
-            </div>
+            </div> */}
 
             <button className={`${s.feedback} text-sm`}>Feedback</button>
+
+            <button className={`${s.upgrade} text-sm`}>Upgrade</button>
 
             <div className="flex justify-end flex-1 space-x-8">
               {user ? (
@@ -69,7 +72,7 @@ export default async function Navbar() {
                 </Link>
               )}
               {user && (
-                <Link href="/reports" className={`${s.link} text-sm`}>
+                <Link href="/reporting" className={`${s.link} text-sm`}>
                   Reports
                 </Link>
               )}
@@ -80,7 +83,7 @@ export default async function Navbar() {
               )}
               {user && (
                 <Link href="/account" className={`${s.link} text-sm`}>
-                  Storage
+                  Container
                 </Link>
               )}
               <Link href="/" className={`${s.link} text-sm`}>

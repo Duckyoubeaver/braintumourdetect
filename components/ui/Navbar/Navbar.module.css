@@ -5,7 +5,7 @@
 .link:hover {
   /* @apply text-white; White text color on hover */
   background-color: rgb(241, 242, 243); /* Grey background color on hover */
-  border-radius: 0.1rem;
+  border-radius: 0.2rem;
 }
 
 .link:focus {
@@ -61,14 +61,21 @@
   @apply font-bold text-black;
 }
 
-.feedback {
+.upgrade {
   @apply inline-flex cursor-pointer items-center rounded-sm p-2 font-medium leading-6 text-black transition ease-in-out;
-  background-color: rgb(232, 255, 60);
+  background-color: rgb(40, 99, 226);
+  color: aliceblue;
   padding: 0.5rem; /* Match the padding with the search input */
 }
 
-.feedback:hover {
-  background-color: rgb(229, 253, 71);
+.upgrade:hover {
+  background-color: rgb(32, 93, 224);
 
   transition: background-color 0.3s ease-in-out;
+}
+
+.feedback {
+  @apply inline-flex cursor-pointer items-center rounded-sm p-2 font-medium leading-6 text-black transition ease-in-out;
+  color: rgb(40, 99, 226);
+  border: 1px solid rgb(40, 99, 226); /* Add this line to include a border */
 }
