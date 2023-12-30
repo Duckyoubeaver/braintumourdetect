@@ -4,13 +4,13 @@
 } */
 
 .link {
-  @apply inline-flex cursor-pointer items-center rounded-md p-1 font-medium leading-6 text-gray-700 transition duration-75 ease-in-out;
+  @apply inline-flex cursor-pointer items-center rounded-md p-2 font-medium leading-6 text-black transition duration-75 ease-in-out;
 }
 
 .link:hover {
   /* @apply text-white; White text color on hover */
   background-color: rgb(241, 242, 243); /* Grey background color on hover */
-  border-radius: 0.25rem;
+  border-radius: 0.1rem;
 }
 
 .link:focus {
@@ -29,14 +29,14 @@
 }
 
 .search {
-  border-radius: 0.2rem; /* Equivalent to rounded-md */
-  background-color: rgb(242, 242, 242); /* Light grey background */
-  padding: 0.5rem; /* Increased padding */
-  font-size: 0.8125rem; /* Decreased font size */
-  color: #000000; /* Black text color */
-  transition: background-color 75ms ease-in-out, color 75ms ease-in-out; /* Transition for both background color and text color */
-  outline: none; /* Equivalent to focus:outline-none */
-  width: 200px; /* Adjust the width as needed */
+  border-radius: 0.2rem;
+  background-color: rgb(242, 242, 242);
+  padding: 0.65rem; /* Adjusted padding */
+  font-size: 0.8125rem;
+  color: #000000;
+  transition: background-color 75ms ease-in-out, color 75ms ease-in-out;
+  outline: none;
+  width: 200px;
 }
 
 .iconContainer {
@@ -67,11 +67,12 @@
 }
 
 .feedback {
-  @apply inline-flex cursor-pointer items-center rounded-sm p-2 font-medium leading-6 text-gray-600 transition ease-in-out;
+  @apply inline-flex cursor-pointer items-center rounded-sm p-2 font-medium leading-6 text-black transition ease-in-out;
   background-color: rgb(191, 248, 82);
+  padding: 0.5rem; /* Match the padding with the search input */
 }
 
 .feedback:hover {
   background-color: rgb(200, 255, 100);
-  transition: background-color 0.2s ease-in-out; /* Decreased duration */
+  transition: background-color 0.2s ease-in-out;
 }

@@ -16,7 +16,7 @@ const AccountDropdown = () => {
     <div className="relative">
       <button
         onClick={toggleDropdown}
-        className={`${s.link} text-sm`} // Removed bg-gray-200
+        className={`${s.link} text-sm p-2`} // Removed bg-gray-200
         aria-label="Account"
       >
         Account

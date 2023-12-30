@@ -14,15 +14,22 @@ export default async function Navbar() {
   } = await supabase.auth.getUser();
 
   return (
-    <nav className="sticky top-0 z-40 bg-white text-black transition-all duration-150 position:fixed">
+    <nav className="sticky top-0 z-40 bg-white text-black transition-all duration-150 fixed">
       <a href="#skip" className="sr-only focus:not-sr-only">
         Skip to content
       </a>
       <div className="w-screen  mx-auto">
         <div className=" px-6 flex justify-between py-2">
           <div className="flex items-center">
-            <span className={`${s.link} text-sm organization-name`}>
-              Organization Name
+            <span className={`${s.link} text-sm p-2 organization-name`}>
+              <Link
+                href="/"
+                className={`${s.logo} text-sm mr-3 `}
+                aria-label="Logo"
+              >
+                <Logo />
+              </Link>
+              Company Name
             </span>
           </div>
           <div className="flex items-center space-x-4">
@@ -54,10 +61,7 @@ export default async function Navbar() {
         <hr className="h-px my-1 bg-gray-200 border-0 dark:bg-gray-700 mx-auto w-full" />
         <div className="px-6 relative flex flex-row justify-between py-2 align-center md:py-2 bg">
           <div className="flex items-center flex-1">
-            <Link href="/" className={`${s.logo} text-sm`} aria-label="Logo">
-              <Logo />
-            </Link>
-            <div className="hidden ml-6 space-x-2 lg:block">
+            <div className="hidden space-x-2 lg:block">
               {user && (
                 <Link href="/account" className={`${s.link} text-sm`}>
                   Overview
@@ -65,7 +69,7 @@ export default async function Navbar() {
               )}
               {user && (
                 <Link href="/account" className={`${s.link} text-sm`}>
-                  Insights
+                  Reports
                 </Link>
               )}
               {user && (
