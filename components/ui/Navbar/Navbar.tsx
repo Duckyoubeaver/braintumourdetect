@@ -63,17 +63,17 @@ export default async function Navbar() {
           <div className="flex items-center flex-1">
             <div className="hidden space-x-2 lg:block">
               {user && (
-                <Link href="/account" className={`${s.link} text-sm`}>
+                <Link href="/overview" className={`${s.link} text-sm`}>
                   Overview
                 </Link>
               )}
               {user && (
-                <Link href="/account" className={`${s.link} text-sm`}>
+                <Link href="/reports" className={`${s.link} text-sm`}>
                   Reports
                 </Link>
               )}
               {user && (
-                <Link href="/account" className={`${s.link} text-sm`}>
+                <Link href="/data" className={`${s.link} text-sm`}>
                   Data Sources
                 </Link>
               )}
@@ -88,6 +88,7 @@ export default async function Navbar() {
             </div>
           </div>
         </div>
+        <hr className="h-px bg-gray-200 border-0 dark:bg-gray-700 mx-auto w-full" />
       </div>
     </nav>
   );

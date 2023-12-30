@@ -3,6 +3,7 @@
 
 import s from './Navbar.module.css';
 import SignOutButton from './SignOutButton';
+import Link from 'next/link';
 import { useState } from 'react';
 
 const AccountDropdown = () => {
@@ -26,6 +27,9 @@ const AccountDropdown = () => {
           {' '}
           {/* Changed background to black and text color to white */}
           <div className="py-10 flex items-center justify-center">
+            <Link href="/account" className={`${s.link} text-sm`}>
+              Account
+            </Link>
             <SignOutButton />
             <button className={`${s.link} text-sm`}>Upgrade</button>
           </div>
