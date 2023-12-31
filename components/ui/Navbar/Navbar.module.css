@@ -1,5 +1,5 @@
 .link {
-  @apply inline-flex cursor-pointer items-center rounded-md p-2 font-medium leading-6 text-black transition duration-75 ease-in-out;
+  @apply inline-flex cursor-pointer items-center rounded-md px-3 p-2 font-medium leading-6 text-black transition duration-75 ease-in-out;
 }
 
 .link:hover {
@@ -64,26 +64,26 @@
 
 .upgrade {
   @apply inline-flex cursor-pointer items-center rounded-sm p-2 font-medium leading-6 text-black transition ease-in-out;
-  background-color: rgb(40, 99, 226);
+  background-color: rgb(0, 0, 0);
   color: aliceblue;
   padding: 0.5rem; /* Match the padding with the search input */
 }
 
 .upgrade:hover {
-  background-color: rgb(32, 93, 224);
+  background-color: rgb(0, 0, 0);
 
   transition: background-color 0.3s ease-in-out;
 }
 
 .feedback {
   @apply inline-flex cursor-pointer items-center rounded-sm p-2 font-medium leading-6 text-black transition ease-in-out;
-  color: rgb(31, 90, 218);
+  color: rgb(0, 0, 0);
   /* border: 1px solid rgb(40, 99, 226); */
 }
 
 .help {
   @apply inline-flex cursor-pointer items-center rounded-sm p-2 font-medium leading-6 text-black transition ease-in-out;
-  color: rgb(31, 90, 218);
+  color: rgb(0, 0, 0);
 }
 .feedback:hover,
 .help:hover {
