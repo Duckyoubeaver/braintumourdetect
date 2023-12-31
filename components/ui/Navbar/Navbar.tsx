@@ -74,7 +74,7 @@ export default async function Navbar() {
 
             <div className="border-l h-8 border-gray-100 mx-2"></div>
 
-            <div className="hidden space-x-2 lg:block">
+            <div className="hidden space-x-1 lg:block">
               {user && (
                 <Link href="/overview" className={`${s.link} text-sm`}>
                   File
@@ -91,24 +91,24 @@ export default async function Navbar() {
                 </Link>
               )}
 
-              {/* {user && (
-                <Link href="/data" className={`${s.link} text-sm`}>
+              {user && (
+                <Link href="/overview" className={`${s.link} text-sm`}>
                   Data
-                </Link>
-              )} */}
-
-              {user && (
-                <Link href="/data" className={`${s.link} text-sm`}>
-                  Data Sources
-                </Link>
-              )}
-              {user && (
-                <Link href="/account" className={`${s.link} text-sm`}>
-                  Storage
                 </Link>
               )}
             </div>
 
+            <div className="border-l h-8 border-gray-100 mx-2"></div>
+            {user && (
+              <Link href="/data" className={`${s.link} text-sm`}>
+                Connections
+              </Link>
+            )}
+            {user && (
+              <Link href="/account" className={`${s.link} text-sm`}>
+                Storage
+              </Link>
+            )}
             <div className="border-l h-8 border-gray-100 mx-2"></div>
 
             {/* <button className={`${s.arrow} ${s.button} text-sm`} title="Undo">
