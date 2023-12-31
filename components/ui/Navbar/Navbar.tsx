@@ -8,8 +8,6 @@ import { RxQuestionMarkCircled } from 'react-icons/rx';
 import { SlArrowLeft } from 'react-icons/sl';
 import { SlArrowRight } from 'react-icons/sl';
 
-//Use server component here, but where client side interaction is needded use a client component
-
 export default async function Navbar() {
   const supabase = createServerSupabaseClient();
   const {
@@ -74,7 +72,7 @@ export default async function Navbar() {
 
             <div className="border-l h-8 border-gray-100 mx-2"></div>
 
-            <div className="hidden space-x-1 lg:block">
+            <div className="hidden space-x-0 lg:block">
               {user && (
                 <Link href="/overview" className={`${s.link} text-sm`}>
                   File
