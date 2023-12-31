@@ -32,6 +32,9 @@ const AccountDropdown = () => {
             </Link>
             <SignOutButton />
             <button className={`${s.link} text-sm`}>Upgrade</button>
+            <Link href="/" className={`${s.link} text-sm`}>
+              Pricing
+            </Link>
           </div>
         </div>
       )}

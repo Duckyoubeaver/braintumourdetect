@@ -25,13 +25,14 @@
 
 .search {
   border-radius: 0.2rem;
-  background-color: rgb(242, 242, 242);
+  /* background-color: rgb(242, 242, 242); */
   padding: 0.65rem; /* Adjusted padding */
   font-size: 0.8125rem;
-  color: #000000;
+  color: #6d6d6d;
   transition: background-color 75ms ease-in-out, color 75ms ease-in-out;
   outline: none;
-  width: 200px;
+  width: 50vw;
+  user-select: none;
 }
 
 .iconContainer {
@@ -76,6 +77,48 @@
 
 .feedback {
   @apply inline-flex cursor-pointer items-center rounded-sm p-2 font-medium leading-6 text-black transition ease-in-out;
-  color: rgb(40, 99, 226);
-  border: 1px solid rgb(40, 99, 226); /* Add this line to include a border */
+  color: rgb(31, 90, 218);
+  /* border: 1px solid rgb(40, 99, 226); */
+}
+
+.help {
+  @apply inline-flex cursor-pointer items-center rounded-sm p-2 font-medium leading-6 text-black transition ease-in-out;
+  color: rgb(31, 90, 218);
+}
+.feedback:hover,
+.help:hover {
+  @apply inline-flex cursor-pointer items-center rounded-sm p-2 font-medium leading-6 text-black transition ease-in-out;
+  color: rgb(0, 0, 124);
+  transition: color 0.3s ease-in-out; /* Adjust the duration and easing as needed */
+  background-color: rgb(241, 242, 243); /* Grey background color on hover */
+}
+
+.arrows {
+  /* Your existing styles for the .arrows class */
+
+  /* Add a transition for smooth hover effects */
+  transition: background-color 0.3s ease;
+}
+
+/* Add hover styles */
+.arrows:hover {
+  background-color: rgb(241, 242, 243); /* Grey background color on hover */
+}
+
+.button {
+  /* Set initial background color and padding */
+  background-color: transparent;
+  padding: 8px; /* Adjust the padding size according to your design */
+  border: none; /* Remove default button border */
+  cursor: pointer; /* Change cursor on hover */
+  display: inline-block; /* Ensure buttons are displayed in the same line */
+  padding: 12px; /* Increase padding on hover for the "square" effect */
+  margin: 2px; /* Add margin to spread buttons apart on hover */
+  /* Add a transition for smooth hover effects */
+  transition: background-color 0.3s ease, padding 0.3s ease, margin 0.3s ease;
+}
+
+/* Add hover styles */
+.button:hover {
+  background-color: rgb(241, 242, 243); /* Grey background color on hover */
 }
