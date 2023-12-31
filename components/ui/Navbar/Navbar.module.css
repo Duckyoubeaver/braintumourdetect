@@ -3,6 +3,7 @@
   user-select: none;
 }
 
+/* navtest */
 .link:hover {
   /* @apply text-white; White text color on hover */
   background-color: rgb(241, 242, 243); /* Grey background color on hover */
@@ -60,7 +61,6 @@
 }
 
 .arrows {
-  
   transition: background-color 0.3s ease;
 }
 
