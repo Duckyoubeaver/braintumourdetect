@@ -4,9 +4,6 @@ import { createServerSupabaseClient } from '@/app/supabase-server';
 import Logo from '@/components/icons/Logo';
 import Link from 'next/link';
 import { GoSearch } from 'react-icons/go';
-import { RxQuestionMarkCircled } from 'react-icons/rx';
-import { SlArrowLeft } from 'react-icons/sl';
-import { SlArrowRight } from 'react-icons/sl';
 
 export default async function Navbar() {
   const supabase = createServerSupabaseClient();
@@ -21,7 +18,7 @@ export default async function Navbar() {
         Skip to content
       </a>
       <div className="w-screen  mx-auto">
-        <div className="px-6 flex justify-between py-1">
+        <div className="px-6 flex justify-between pt-1">
           <div className="flex items-center">
             <span className={`${s.link} text-md p-2 organization-name`}>
               <Link
@@ -60,7 +57,7 @@ export default async function Navbar() {
         </div>
         <hr className="h-px my-1 bg-gray-200 border-0 dark:bg-gray-700 mx-auto w-full" />
         <div
-          className={`top-0 sticky px-6 relative flex flex-row justify-between py-1 align-center md:py-1 bg`}
+          className={`top-0 sticky px-6 relative flex flex-row justify-between py-0 align-center md:py-0 bg`}
         >
           <div className="flex items-center flex-1">
             <button
@@ -83,6 +80,7 @@ export default async function Navbar() {
                   Edit
                 </Link>
               )}
+
               {user && (
                 <Link href="/overview" className={`${s.link} text-sm`}>
                   View
@@ -94,9 +92,16 @@ export default async function Navbar() {
                   Data
                 </Link>
               )}
+
+              {user && (
+                <Link href="/overview" className={`${s.link} text-sm`}>
+                  Share
+                </Link>
+              )}
+              {/* connections go under here */}
             </div>
 
-            <div className="border-l h-8 border-gray-100 mx-2"></div>
+            {/* <div className="border-l h-8 border-gray-100 mx-2"></div>
             {user && (
               <Link href="/data" className={`${s.link} text-sm`}>
                 Connections
@@ -106,7 +111,7 @@ export default async function Navbar() {
               <Link href="/account" className={`${s.link} text-sm`}>
                 Storage
               </Link>
-            )}
+            )} */}
             <div className="border-l h-8 border-gray-100 mx-2"></div>
 
             {/* <button className={`${s.arrow} ${s.button} text-sm`} title="Undo">
