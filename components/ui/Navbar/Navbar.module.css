@@ -1,5 +1,5 @@
 .link {
-  @apply inline-flex cursor-pointer items-center rounded-md px-3 p-2 font-medium leading-6 text-black transition duration-75 ease-in-out;
+  @apply inline-flex cursor-pointer items-center rounded-md px-3 p-2 font-medium leading-6 text-gray-700 transition duration-75 ease-in-out;
   user-select: none;
 }
 
@@ -11,7 +11,7 @@
 }
 
 .link:focus {
-  @apply text-black outline-none ring-2 ring-transparent ring-opacity-50;
+  @apply text-gray-700 outline-none ring-2 ring-transparent ring-opacity-50;
 }
 
 .logo {
@@ -20,13 +20,13 @@
 
 /* New styles for search input */
 
-/* Make Organization Name black and bold */
+/* Make Organization Name gray-800 and bold */
 .organization-name {
-  @apply font-bold text-black;
+  @apply font-bold text-gray-700;
 }
 
 .upgrade {
-  @apply inline-flex cursor-pointer items-center rounded-sm p-2 font-medium leading-6 text-black transition ease-in-out;
+  @apply inline-flex cursor-pointer items-center rounded-sm p-2 font-medium leading-6 text-gray-800 transition ease-in-out;
   background-color: rgb(0, 0, 0);
   color: aliceblue;
   padding: 0.5rem; /* Match the padding with the search input */
@@ -41,20 +41,20 @@
 }
 
 .feedback {
-  @apply inline-flex cursor-pointer items-center rounded-sm p-2 font-medium leading-6 text-black transition ease-in-out;
+  @apply inline-flex cursor-pointer items-center rounded-sm p-2 font-medium leading-6 text-gray-800 transition ease-in-out;
   color: rgb(0, 0, 0);
   /* border: 1px solid rgb(40, 99, 226); */
   user-select: none;
 }
 
 .help {
-  @apply inline-flex cursor-pointer items-center rounded-sm p-2 font-medium leading-6 text-black transition ease-in-out;
+  @apply inline-flex cursor-pointer items-center rounded-sm p-2 font-medium leading-6 text-gray-800 transition ease-in-out;
   color: rgb(0, 0, 0);
   user-select: none;
 }
 .feedback:hover,
 .help:hover {
-  @apply inline-flex cursor-pointer items-center rounded-sm p-2 font-medium leading-6 text-black transition ease-in-out;
+  @apply inline-flex cursor-pointer items-center rounded-sm p-2 font-medium leading-6 text-gray-800 transition ease-in-out;
   color: rgb(94, 138, 248);
   transition: color 0.3s ease-in-out; /* Adjust the duration and easing as needed */
   background-color: rgb(241, 242, 243); /* Grey background color on hover */
