@@ -88,6 +88,11 @@ export default async function Navbar() {
               )}
               {user && (
                 <Link href="/overview" className={`${s.link} text-sm`}>
+                  Insert
+                </Link>
+              )}
+              {user && (
+                <Link href="/overview" className={`${s.link} text-sm`}>
                   Format
                 </Link>
               )}
