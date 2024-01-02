@@ -12,8 +12,8 @@ export default async function Navbar() {
   } = await supabase.auth.getUser();
 
   return (
-    <nav className=" sticky top-0 z-40 bg-white text-black transition-all duration-150">
-      {/* <nav className="bg-white text-black transition-all duration-150"> */}
+    // <nav className=" sticky top-0 z-40 bg-white text-black transition-all duration-150">
+    <nav className="bg-white text-black transition-all duration-150">
       <a href="#skip" className="sr-only focus:not-sr-only">
         Skip to content
       </a>
@@ -28,7 +28,7 @@ export default async function Navbar() {
               >
                 <Logo />
               </Link>
-              Organisation Name
+              Report Name
             </span>
           </div>
 
@@ -67,38 +67,39 @@ export default async function Navbar() {
               <GoSearch />
             </button>
 
+            {/* change it not into a link but a button */}
             <div className="border-l h-8 border-gray-100 mx-2"></div>
 
             <div className="hidden space-x-0 lg:block">
               {user && (
-                <Link href="/overview" className={`${s.link} text-sm`}>
+                <Link href="/report" className={`${s.link} text-sm`}>
                   File
                 </Link>
               )}
               {user && (
-                <Link href="/overview" className={`${s.link} text-sm`}>
+                <Link href="/report" className={`${s.link} text-sm`}>
                   Edit
                 </Link>
               )}
 
               {user && (
-                <Link href="/overview" className={`${s.link} text-sm`}>
+                <Link href="/report" className={`${s.link} text-sm`}>
                   View
                 </Link>
               )}
               {user && (
-                <Link href="/overview" className={`${s.link} text-sm`}>
+                <Link href="/report" className={`${s.link} text-sm`}>
                   Insert
                 </Link>
               )}
               {user && (
-                <Link href="/overview" className={`${s.link} text-sm`}>
+                <Link href="/report" className={`${s.link} text-sm`}>
                   Format
                 </Link>
               )}
 
               {user && (
-                <Link href="/overview" className={`${s.link} text-sm`}>
+                <Link href="/report" className={`${s.link} text-sm`}>
                   Data
                 </Link>
               )}
