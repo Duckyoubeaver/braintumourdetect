@@ -33,14 +33,9 @@ export default async function Navbar() {
           </div>
 
           <div className="flex items-center space-x-2">
-            {/* <button className={`${s.arrow} ${s.button} text-sm`} title="Redo">
-              <RxQuestionMarkCircled />
-            </button> */}
             <button className={`${s.help} text-sm`}>Help</button>
 
             <button className={`${s.feedback} text-sm`}>Feedback</button>
-
-            {/* <button className={`${s.upgrade} text-sm`}>Upgrade</button> */}
 
             <div className="border-l h-8 border-gray-100 mx-2"></div>
 
@@ -103,40 +98,9 @@ export default async function Navbar() {
                   Data
                 </Link>
               )}
-
-              {/* {user && (
-                <Link href="/overview" className={`${s.link} text-sm`}>
-                  Share
-                </Link>
-              )} */}
-              {/* connections go under here */}
             </div>
 
-            {/* <div className="border-l h-8 border-gray-100 mx-2"></div>
-            {user && (
-              <Link href="/data" className={`${s.link} text-sm`}>
-                Connections
-              </Link>
-            )}
-            {user && (
-              <Link href="/account" className={`${s.link} text-sm`}>
-                Storage
-              </Link>
-            )} */}
             <div className="border-l h-8 border-gray-100 mx-2"></div>
-
-            {/* <button className={`${s.arrow} ${s.button} text-sm`} title="Undo">
-              <SlArrowLeft />
-            </button>
-
-            <button className={`${s.arrow} ${s.button} text-sm`} title="Redo">
-              <SlArrowRight />
-            </button> */}
-            {/* {user && (
-              <Link href="/account" className={`${s.link} text-sm`}>
-                Share
-              </Link>
-            )} */}
           </div>
         </div>
         <hr className="h-px bg-gray-200 border-0 dark:bg-gray-700 mx-auto w-full" />
