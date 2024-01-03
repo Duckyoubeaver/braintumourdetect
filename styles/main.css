@@ -22,7 +22,7 @@ body {
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   @apply bg-zinc-800 text-white antialiased;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 body {
