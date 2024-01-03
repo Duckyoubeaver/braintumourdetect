@@ -5,6 +5,7 @@ import Logo from '@/components/icons/Logo';
 import Link from 'next/link';
 import { GoSearch } from 'react-icons/go';
 import Hamburger from './Hamburger';
+import SubmenuComponent from './Submenu';
 
 export default async function Navbar() {
   const supabase = createServerSupabaseClient();
@@ -67,38 +68,12 @@ export default async function Navbar() {
             <div className="border-l h-8 border-gray-100 mx-2"></div>
 
             <div className="hidden space-x-0 lg:block">
-              {user && (
-                <Link href="/report" className={`${s.link} text-sm`}>
-                  File
-                </Link>
-              )}
-              {user && (
-                <Link href="/report" className={`${s.link} text-sm`}>
-                  Edit
-                </Link>
-              )}
-
-              {user && (
-                <Link href="/report" className={`${s.link} text-sm`}>
-                  View
-                </Link>
-              )}
-              {user && (
-                <Link href="/report" className={`${s.link} text-sm`}>
-                  Insert
-                </Link>
-              )}
-              {user && (
-                <Link href="/report" className={`${s.link} text-sm`}>
-                  Format
-                </Link>
-              )}
-
-              {user && (
-                <Link href="/report" className={`${s.link} text-sm`}>
-                  Data
-                </Link>
-              )}
+              {user && <button className={`${s.link} text-sm`}>File</button>}
+              {user && <button className={`${s.link} text-sm`}>Edit</button>}
+              {user && <button className={`${s.link} text-sm`}>View</button>}
+              {user && <button className={`${s.link} text-sm`}>Insert</button>}
+              {user && <button className={`${s.link} text-sm`}>Format</button>}
+              {user && <button className={`${s.link} text-sm`}>Data</button>}
             </div>
 
             <div className="border-l h-8 border-gray-100 mx-2"></div>
