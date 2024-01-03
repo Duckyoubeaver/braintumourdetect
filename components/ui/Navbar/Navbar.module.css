@@ -60,16 +60,19 @@
   background-color: rgb(241, 242, 243); /* Grey background color on hover */
 }
 
-.arrows {
-  transition: background-color 0.3s ease;
+.rotate {
+  transform: rotate(90deg); /* or the desired angle */
 }
 
-/* Add hover styles */
-.arrows:hover {
-  background-color: rgb(241, 242, 243); /* Grey background color on hover */
+.buttonContainer {
+  /* Your existing styles */
+  transition: transform 0.5s ease; /* Adjust the duration and easing function as needed */
 }
 
 .button {
+  @apply rounded-md;
+  transition: transform 1s ease; /* Adjust the duration and easing function as needed */
+
   /* Set initial background color and padding */
   background-color: transparent;
   padding: 8px; /* Adjust the padding size according to your design */

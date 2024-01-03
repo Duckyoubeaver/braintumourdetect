@@ -4,6 +4,7 @@ import { createServerSupabaseClient } from '@/app/supabase-server';
 import Logo from '@/components/icons/Logo';
 import Link from 'next/link';
 import { GoSearch } from 'react-icons/go';
+import Hamburger from './Hamburger';
 
 export default async function Navbar() {
   const supabase = createServerSupabaseClient();
@@ -102,6 +103,7 @@ export default async function Navbar() {
 
             <div className="border-l h-8 border-gray-100 mx-2"></div>
           </div>
+          <Hamburger />
         </div>
         <hr className="h-px bg-gray-200 border-0 dark:bg-gray-700 mx-auto w-full" />
       </div>
