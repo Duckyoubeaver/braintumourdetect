@@ -17,7 +17,7 @@ const DropdownContent: React.FC = () => {
   );
 };
 
-const File: React.FC<FileProps> = ({ isOpen, onClick }) => {
+const Edit: React.FC<FileProps> = ({ isOpen, onClick }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(isOpen);
 
   const handleButtonClick = () => {
@@ -39,10 +39,10 @@ const File: React.FC<FileProps> = ({ isOpen, onClick }) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <button onClick={handleButtonClick}>File</button>
+      <button onClick={handleButtonClick}>Edit</button>
       {isDropdownOpen && <DropdownContent />}
     </div>
   );
 };
 
-export default File;
+export default Edit;

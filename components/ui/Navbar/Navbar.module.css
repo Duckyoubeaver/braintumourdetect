@@ -117,3 +117,7 @@
   text-align: left;
   display: block;
 }
+
+.dropdown:hover .dropdowncontent {
+  display: block;
+}

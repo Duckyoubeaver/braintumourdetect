@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { GoSearch } from 'react-icons/go';
 import Hamburger from './Hamburger';
 import File from './File';
+import Edit from './Edit';
 import Toolbar from './Toolbar';
 
 export default async function Navbar() {
@@ -68,7 +69,26 @@ export default async function Navbar() {
             {/* change it not into a link but a button */}
             <div className="border-l h-8 border-gray-100 mx-2"></div>
 
-            {user && <Toolbar />}
+            <div className="hidden space-x-0 lg:block">
+              <Toolbar />
+              {/* {user && (
+                <div className={`${s.link} ${s.dropdowncontainer} text-sm`}>
+                  <File />
+                </div>
+              )}
+              {user && (
+                <div className={`${s.link} ${s.dropdowncontainer} text-sm`}>
+                  <Edit />
+                </div>
+              )} */}
+
+              {/* {user && <button className={`${s.link} text-sm`}>File</button>} */}
+              {/* {user && <button className={`${s.link} text-sm`}>Edit</button>}
+              {user && <button className={`${s.link} text-sm`}>View</button>}
+              {user && <button className={`${s.link} text-sm`}>Insert</button>}
+              {user && <button className={`${s.link} text-sm`}>Format</button>}
+              {user && <button className={`${s.link} text-sm`}>Data</button>} */}
+            </div>
 
             <div className="border-l h-8 border-gray-100 mx-2"></div>
           </div>
