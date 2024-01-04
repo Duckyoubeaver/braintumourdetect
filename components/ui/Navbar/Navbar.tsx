@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { GoSearch } from 'react-icons/go';
 import Hamburger from './Hamburger';
 import File from './File';
+import Toolbar from './Toolbar';
 
 export default async function Navbar() {
   const supabase = createServerSupabaseClient();
@@ -67,20 +68,7 @@ export default async function Navbar() {
             {/* change it not into a link but a button */}
             <div className="border-l h-8 border-gray-100 mx-2"></div>
 
-            <div className="hidden space-x-0 lg:block">
-              {user && (
-                <div className={`${s.link} ${s.dropdowncontainer} text-sm`}>
-                  <File />
-                </div>
-              )}
-
-              {/* {user && <button className={`${s.link} text-sm`}>File</button>} */}
-              {user && <button className={`${s.link} text-sm`}>Edit</button>}
-              {user && <button className={`${s.link} text-sm`}>View</button>}
-              {user && <button className={`${s.link} text-sm`}>Insert</button>}
-              {user && <button className={`${s.link} text-sm`}>Format</button>}
-              {user && <button className={`${s.link} text-sm`}>Data</button>}
-            </div>
+            {user && <Toolbar />}
 
             <div className="border-l h-8 border-gray-100 mx-2"></div>
           </div>
