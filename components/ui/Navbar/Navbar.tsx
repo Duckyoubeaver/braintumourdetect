@@ -21,7 +21,7 @@ export default async function Navbar() {
       <div className="w-screen  mx-auto">
         <div className="px-6 flex justify-between pt-1">
           <div className="flex items-center">
-            <span className={`${s.link} text-sm p-2 organization-name`}>
+            <span className={`${s.link} text-md p-2 organization-name`}>
               <Link
                 href="/"
                 className={`${s.logo} text-sm mr-3 `}
@@ -34,9 +34,9 @@ export default async function Navbar() {
           </div>
 
           <div className="flex items-center space-x-2">
-            <button className={`${s.help} text-xs`}>Help</button>
+            <button className={`${s.help} text-sm`}>Help</button>
 
-            <button className={`${s.feedback} text-xs`}>Feedback</button>
+            <button className={`${s.feedback} text-sm`}>Feedback</button>
 
             <div className="border-l h-8 border-gray-100 mx-2"></div>
 
@@ -56,7 +56,10 @@ export default async function Navbar() {
           className={`top-0 sticky px-6 relative flex flex-row justify-between py-0 align-center md:py-0 bg`}
         >
           <div className="flex items-center flex-1">
-            <button className={`${s.arrow} ${s.button} text-sm`} title="Search">
+            <button
+              className={`${s.arrow} ${s.button} text-base`}
+              title="Search"
+            >
               <GoSearch />
             </button>
 
@@ -64,12 +67,12 @@ export default async function Navbar() {
             <div className="border-l h-8 border-gray-100 mx-2"></div>
 
             <div className="hidden space-x-0 lg:block">
-              {user && <button className={`${s.link} text-xs`}>File</button>}
-              {user && <button className={`${s.link} text-xs`}>Edit</button>}
-              {user && <button className={`${s.link} text-xs`}>View</button>}
-              {user && <button className={`${s.link} text-xs`}>Insert</button>}
-              {user && <button className={`${s.link} text-xs`}>Format</button>}
-              {user && <button className={`${s.link} text-xs`}>Data</button>}
+              {user && <button className={`${s.link} text-sm`}>File</button>}
+              {user && <button className={`${s.link} text-sm`}>Edit</button>}
+              {user && <button className={`${s.link} text-sm`}>View</button>}
+              {user && <button className={`${s.link} text-sm`}>Insert</button>}
+              {user && <button className={`${s.link} text-sm`}>Format</button>}
+              {user && <button className={`${s.link} text-sm`}>Data</button>}
               {user && (
                 <button className={`${s.link} text-sm`}>Analysis</button>
               )}
