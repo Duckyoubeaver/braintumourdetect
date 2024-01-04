@@ -68,7 +68,12 @@ export default async function Navbar() {
             <div className="border-l h-8 border-gray-100 mx-2"></div>
 
             <div className="hidden space-x-0 lg:block">
-              <File />
+              {user && (
+                <div className={`${s.link} text-sm`}>
+                  <File />
+                </div>
+              )}
+
               {/* {user && <button className={`${s.link} text-sm`}>File</button>} */}
               {user && <button className={`${s.link} text-sm`}>Edit</button>}
               {user && <button className={`${s.link} text-sm`}>View</button>}
