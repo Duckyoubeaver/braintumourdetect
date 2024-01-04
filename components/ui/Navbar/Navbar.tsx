@@ -5,7 +5,7 @@ import Logo from '@/components/icons/Logo';
 import Link from 'next/link';
 import { GoSearch } from 'react-icons/go';
 import Hamburger from './Hamburger';
-import SubmenuComponent from './Submenu';
+import File from './File';
 
 export default async function Navbar() {
   const supabase = createServerSupabaseClient();
@@ -68,7 +68,8 @@ export default async function Navbar() {
             <div className="border-l h-8 border-gray-100 mx-2"></div>
 
             <div className="hidden space-x-0 lg:block">
-              {user && <button className={`${s.link} text-sm`}>File</button>}
+              <File />
+              {/* {user && <button className={`${s.link} text-sm`}>File</button>} */}
               {user && <button className={`${s.link} text-sm`}>Edit</button>}
               {user && <button className={`${s.link} text-sm`}>View</button>}
               {user && <button className={`${s.link} text-sm`}>Insert</button>}
