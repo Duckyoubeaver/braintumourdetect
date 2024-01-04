@@ -69,7 +69,7 @@ export default async function Navbar() {
 
             <div className="hidden space-x-0 lg:block">
               {user && (
-                <div className={`${s.link} text-sm`}>
+                <div className={`${s.link} ${s.dropdowncontainer} text-sm`}>
                   <File />
                 </div>
               )}
