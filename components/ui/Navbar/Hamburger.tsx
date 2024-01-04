@@ -21,7 +21,7 @@ const Hamburger = () => {
   return (
     <div className={`${s.buttonContainer} ${rotationClass}`}>
       <button
-        className={`${s.button} text-base`}
+        className={`${s.button} text-sm`}
         title="More"
         onClick={handleButtonClick}
       >
