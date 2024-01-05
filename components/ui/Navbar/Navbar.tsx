@@ -47,6 +47,7 @@ export default async function Navbar() {
                 <Link href="/signin" className={`${s.link} text-sm`}>
                   Sign in
                 </Link>
+                //signin
               )}
             </div>
           </div>
