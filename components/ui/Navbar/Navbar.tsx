@@ -33,7 +33,7 @@ export default async function Navbar() {
             </span>
           </div>
 
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center">
             <button className={`${s.help} text-xs`}>Help</button>
 
             <button className={`${s.feedback} text-xs`}>Feedback</button>
@@ -77,6 +77,8 @@ export default async function Navbar() {
 
             <div className="border-l h-8 border-gray-100 mx-2"></div>
           </div>
+          {/* <div className="border-l h-8 border-gray-100 mx-2"></div> */}
+
           <Hamburger />
         </div>
         <hr className="h-px bg-gray-200 border-0 dark:bg-gray-700 mx-auto w-full" />
