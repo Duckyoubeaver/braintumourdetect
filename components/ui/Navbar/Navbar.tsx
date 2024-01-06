@@ -68,7 +68,7 @@ export default async function Navbar() {
               {user && <button className={`${s.link} text-xs`}>File</button>}
               {user && <button className={`${s.link} text-xs`}>Edit</button>}
               {user && <button className={`${s.link} text-xs`}>View</button>}
-              {user && <button className={`${s.link} text-xs`}>Insert</button>}
+              {/* {user && <button className={`${s.link} text-xs`}>Insert</button>} */}
               {user && <button className={`${s.link} text-xs`}>Format</button>}
               {user && <button className={`${s.link} text-xs`}>Data</button>}
               {user && (
