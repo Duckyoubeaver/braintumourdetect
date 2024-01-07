@@ -13,7 +13,6 @@ export default async function Navbar() {
   } = await supabase.auth.getUser();
 
   return (
-    // <nav className=" sticky top-0 z-40 bg-white text-black transition-all duration-150">
     <nav className="bg-white text-black transition-all duration-150">
       <a href="#skip" className="sr-only focus:not-sr-only">
         Skip to content
