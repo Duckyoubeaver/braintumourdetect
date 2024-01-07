@@ -17,6 +17,7 @@ export default function SignOutButton() {
   };
 
   // Render the button with the appropriate styles
+  //Log
   return (
     <button
       className={`${s.link} text-sm`} // Use the same styles as the navbar links
