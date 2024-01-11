@@ -65,8 +65,8 @@ export default async function Navbar() {
             <div className="border-l h-8 border-gray-100 mx-2"></div>
 
             <div className="hidden space-x-0 lg:block">
-              {/* {user && <button className={`${s.link} text-xs`}>Dashboard</button>} */}
-              {user && <button className={`${s.link} text-xs`}>Roster</button>}
+              {/* {user && <button className={`${s.link} text-xs`}>Home</button>} */}
+              {user && <button className={`${s.link} text-xs`}>Shift Schedule</button>}
               
               {user && <button className={`${s.link} text-xs`}>Payroll</button>}
               {user && (
