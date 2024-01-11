@@ -33,9 +33,10 @@ export default async function Navbar() {
           </div>
 
           <div className="flex items-center">
-            <button className={`${s.help} text-xs`}>Help</button>
 
-            <button className={`${s.feedback} text-xs`}>Feedback</button>
+          <button className={`${s.link} text-xs`}>Help</button>
+
+            {/* <button className={`${s.feedback} text-xs`}>Feedback</button> */}
 
             <div className="border-l h-8 border-gray-100 mx-2"></div>
 
@@ -64,16 +65,14 @@ export default async function Navbar() {
             <div className="border-l h-8 border-gray-100 mx-2"></div>
 
             <div className="hidden space-x-0 lg:block">
-              {user && <button className={`${s.link} text-xs`}>Home</button>}
+              {/* {user && <button className={`${s.link} text-xs`}>Home</button>} */}
               {user && <button className={`${s.link} text-xs`}>Shifts</button>}
-              {user && (
-                <button className={`${s.link} text-xs`}>Data</button>
-              )}
+              
+              {user && <button className={`${s.link} text-xs`}>Payroll</button>}
               {user && (
                 <button className={`${s.link} text-xs`}>Analysis</button>
               )}
-             {user && <button className={`${s.link} text-xs`}>Share</button>}
-
+              {user && <button className={`${s.link} text-xs`}>Share</button>}
             </div>
 
             <div className="border-l h-8 border-gray-100 mx-2"></div>
