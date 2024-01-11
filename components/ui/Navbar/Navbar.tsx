@@ -66,6 +66,8 @@ export default async function Navbar() {
 
             <div className="hidden space-x-0 lg:block">
               {/* {user && <button className={`${s.link} text-xs`}>Home</button>} */}
+              {user && <button className={`${s.link} text-xs`}>Settings</button>}
+
               {user && <button className={`${s.link} text-xs`}>Shift Schedule</button>}
               
               {user && <button className={`${s.link} text-xs`}>Payroll</button>}
