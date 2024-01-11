@@ -33,8 +33,7 @@ export default async function Navbar() {
           </div>
 
           <div className="flex items-center">
-
-          <button className={`${s.link} text-xs`}>Help</button>
+            <button className={`${s.link} text-xs`}>Help</button>
 
             {/* <button className={`${s.feedback} text-xs`}>Feedback</button> */}
 
@@ -66,15 +65,31 @@ export default async function Navbar() {
 
             <div className="hidden space-x-0 lg:block">
               {/* {user && <button className={`${s.link} text-xs`}>Home</button>} */}
-              {user && <button className={`${s.link} text-xs`}>Settings</button>}
-
-              {user && <button className={`${s.link} text-xs`}>Shift Schedule</button>}
-              
-              {user && <button className={`${s.link} text-xs`}>Payroll</button>}
               {user && (
-                <button className={`${s.link} text-xs`}>Analysis</button>
+                <Link href="/report" className={`${s.link} text-xs`}>
+                  Settings
+                </Link>
               )}
-              {user && <button className={`${s.link} text-xs`}>Share</button>}
+              {user && (
+                <Link href="/report" className={`${s.link} text-xs`}>
+                  Roster
+                </Link>
+              )}
+              {user && (
+                <Link href="/report" className={`${s.link} text-xs`}>
+                  Payroll
+                </Link>
+              )}
+              {user && (
+                <Link href="/report" className={`${s.link} text-xs`}>
+                  Analysis
+                </Link>
+              )}
+              {user && (
+                <Link href="/report" className={`${s.link} text-xs`}>
+                  Share
+                </Link>
+              )}
             </div>
 
             <div className="border-l h-8 border-gray-100 mx-2"></div>
