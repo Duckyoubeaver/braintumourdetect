@@ -1,5 +1,6 @@
 .link {
-  @apply inline-flex cursor-pointer items-center rounded-md px-3 py-1 font-medium leading-6 text-gray-700 transition duration-75 ease-in-out;
+  @apply inline-flex cursor-pointer items-center rounded-md px-3 py-2 text-gray-700 transition duration-75 ease-in-out;
+  font-size: 11px;
   user-select: none;
 }
 
@@ -18,11 +19,8 @@
   @apply transform cursor-pointer rounded-full duration-100 ease-in-out;
 }
 
-/* New styles for search input */
-
-/* Make Organization Name gray-800 and bold */
 .organization-name {
-  @apply font-bold text-gray-700;
+  @apply font-bold;
 }
 
 .upgrade {
@@ -125,4 +123,45 @@
 
 .dropdown:hover .dropdowncontent {
   display: block;
+}
+
+.publish {
+  @apply inline-flex cursor-pointer items-center rounded-md px-3 py-1 font-medium leading-6 text-white transition duration-75 ease-in-out; /* White text color */
+  user-select: none;
+  border: 2px solid transparent; /* Add transparent border */
+  font-size: 11px;
+}
+
+.publish {
+  @apply inline-flex cursor-pointer items-center rounded-md px-3 py-1 font-medium leading-6 text-white transition duration-300 ease-in-out; /* White text color */
+  user-select: none;
+  background-color: rgb(
+    45,
+    109,
+    237
+  ); /* Lighter blue background color on hover */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+  margin-left: 10px; /* Left margin */
+  margin-right: 10px; /* Right margin */
+}
+
+.publish:hover {
+  background-color: rgb(40, 96, 208); /* Blue background */
+}
+
+.logos {
+  @apply px-3;
+  user-select: none;
+}
+
+.title {
+  @apply inline-flex cursor-pointer items-center rounded-md px-3 py-1 my-1 text-gray-700 transition duration-75 ease-in-out;
+  font-size: 12px;
+  user-select: none;
+}
+
+.title:hover {
+  /* @apply text-white; White text color on hover */
+  background-color: rgb(241, 242, 243); /* Grey background color on hover */
+  border-radius: 0.2rem;
 }

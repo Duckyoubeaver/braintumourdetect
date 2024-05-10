@@ -13,6 +13,11 @@ const Hamburger = () => {
   const handleButtonClick = () => {
     setIsRotated(!isRotated);
   };
+  const [sideNavOpen, setSideNavOpen] = useState(false);
+
+  const toggleSideNav = () => {
+    setSideNavOpen(!sideNavOpen);
+  };
 
   // Dynamically set rotation class based on state
   const rotationClass = isRotated ? s.rotate : '';
@@ -21,7 +26,7 @@ const Hamburger = () => {
   return (
     <div className={`${s.buttonContainer} ${rotationClass}`}>
       <button
-        className={`${s.button} text-sm`}
+        className={`${s.button} text-xs`}
         title="More"
         onClick={handleButtonClick}
       >

@@ -20,7 +20,7 @@ export default function SignOutButton() {
   //Log
   return (
     <button
-      className={`${s.link} text-sm`} // Use the same styles as the navbar links
+      className={`${s.link} text-xs`} // Use the same styles as the navbar links
       onClick={handleSignOut}
     >
       Log Out
