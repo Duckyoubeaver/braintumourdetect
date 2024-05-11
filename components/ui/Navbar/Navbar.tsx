@@ -52,15 +52,23 @@ export default async function Navbar() {
                 </Link>
               )}
             </div>
-            <div className="border-l h-12 border-gray-100 mx-2"></div>
+            {user && <div className="border-l h-12 border-gray-100 mx-2"></div>}
           </div>
           <div className="border-l h-12 border-gray-100 mx-2"></div>
           <div className="flex justify-between pt-1">
             <div className="flex items-center">
-              <button className={`${s.link} px-1`}>Share</button>
-              <button className={`${s.publish} px-1`}>Upload Scan</button>
+              {user && (
+                <div>
+                  <button className={`${s.link} px-1`}>Share</button>
+                  <button className={`${s.publish} px-1`}>Upload Scan</button>
+                </div>
+              )}
 
-              <div className="border-l h-12 border-gray-100 mx-2"></div>
+              {user && (
+                <div>
+                  <div className="border-l h-12 border-gray-100 mx-2"></div>
+                </div>
+              )}
 
               <div className="flex justify-end flex-1 space-x-8">
                 {user ? (
@@ -69,7 +77,6 @@ export default async function Navbar() {
                   <Link href="/signin" className={`${s.link}`}>
                     Sign in
                   </Link>
-                  //signin
                 )}
               </div>
             </div>

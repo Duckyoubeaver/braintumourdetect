@@ -5,9 +5,9 @@ import { redirect } from 'next/navigation';
 
 export default async function SignIn() {
   const session = await getSession();
-
+  //Changing Authentication Route redirect to scan
   if (session) {
-    return redirect('/account');
+    return redirect('/scans');
   }
 
   return (

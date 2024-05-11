@@ -36,9 +36,7 @@ const Scans = () => {
       <table
         className={`${s.scanTable} ${s.blackBackground} ${s.interFont} ${s.smaller}`}
       >
-        <div className={`font-medium my-6 mx-2 mr-0`}>
-          Uploaded Brain Scans Stub
-        </div>
+        <div className={`font-medium my-6 mx-2 mr-0`}>Uploaded Brain Scans</div>
 
         <tbody>
           {scans.map((scan, index) => (
