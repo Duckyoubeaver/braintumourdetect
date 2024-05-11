@@ -5,7 +5,7 @@ import { PropsWithChildren } from 'react';
 import 'styles/main.css';
 
 const meta = {
-  title: 'Brain Tumour Diagnosis',
+  title: 'NeuroVision | Brain Tumour Diagnosis Software',
   description: 'For Radiologists',
   cardImage: '/og.png',
   robots: 'follow, index',

@@ -3,6 +3,7 @@ import s from './Navbar.module.css';
 import { createServerSupabaseClient } from '@/app/supabase-server';
 import Logo from '@/components/icons/Logo';
 import Link from 'next/link';
+
 // import Hamburger from './Hamburger';
 
 export default async function Navbar() {
@@ -27,9 +28,7 @@ export default async function Navbar() {
               <div className="flex items-center">
                 <span className={`${s.title} p-2 organization-name`}>
                   <Logo />
-                  <p className={`${s.logos} p-2 my-1`}>
-                    Brain Tumour Detection
-                  </p>
+                  <p className={`${s.logos} p-2 my-1`}>NeuroVision</p>
                 </span>
               </div>
             </Link>
