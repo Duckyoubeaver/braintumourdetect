@@ -3,6 +3,7 @@ import s from './Navbar.module.css';
 import { createServerSupabaseClient } from '@/app/supabase-server';
 import Logo from '@/components/icons/Logo';
 import Link from 'next/link';
+// import Hamburger from './Hamburger';
 
 export default async function Navbar() {
   const supabase = createServerSupabaseClient();
@@ -26,30 +27,28 @@ export default async function Navbar() {
               <div className="flex items-center">
                 <span className={`${s.title} p-2 organization-name`}>
                   <Logo />
-                  <p className={`${s.logos} p-2 my-1`}>Enterprise Name</p>
+                  <p className={`${s.logos} p-2 my-1`}>
+                    Brain Tumour Detection
+                  </p>
                 </span>
               </div>
             </Link>
             <div className="border-l h-12 border-gray-100 mx-2"></div>
             <div className="hidden space-x-0 mx-3 lg:block">
               {user && (
-                <Link href="/app" className={`${s.link}`}>
-                  Overview
+                <Link href="/scans" className={`${s.link}`}>
+                  Scans
                 </Link>
               )}
+
               {user && (
-                <Link href="/app" className={`${s.link}`}>
+                <Link href="/models" className={`${s.link}`}>
                   Models
                 </Link>
               )}
 
               {user && (
-                <Link href="/app" className={`${s.link}`}>
-                  Templates
-                </Link>
-              )}
-              {user && (
-                <Link href="/app" className={`${s.link}`}>
+                <Link href="/documentation" className={`${s.link}`}>
                   Documentation
                 </Link>
               )}
@@ -60,7 +59,7 @@ export default async function Navbar() {
           <div className="flex justify-between pt-1">
             <div className="flex items-center">
               <button className={`${s.link} px-1`}>Share</button>
-              <button className={`${s.publish} px-1`}>Deploy</button>
+              <button className={`${s.publish} px-1`}>Upload Scan</button>
 
               <div className="border-l h-12 border-gray-100 mx-2"></div>
 

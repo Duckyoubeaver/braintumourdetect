@@ -5,8 +5,8 @@ import { PropsWithChildren } from 'react';
 import 'styles/main.css';
 
 const meta = {
-  title: 'Predicate',
-  description: 'Predicate',
+  title: 'Brain Tumour Diagnosis',
+  description: 'For Radiologists',
   cardImage: '/og.png',
   robots: 'follow, index',
   favicon: '/favicon.ico',
