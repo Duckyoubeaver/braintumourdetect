@@ -1,10 +1,9 @@
 import AccountDropdown from './Account';
 import s from './Navbar.module.css';
 import { createServerSupabaseClient } from '@/app/supabase-server';
+import ImageUpload from '@/components/Upload';
 import Logo from '@/components/icons/Logo';
 import Link from 'next/link';
-
-// import Hamburger from './Hamburger';
 
 export default async function Navbar() {
   const supabase = createServerSupabaseClient();
@@ -41,8 +40,8 @@ export default async function Navbar() {
               )}
 
               {user && (
-                <Link href="/models" className={`${s.link}`}>
-                  Models
+                <Link href="/patients" className={`${s.link}`}>
+                  Patients
                 </Link>
               )}
 
@@ -59,8 +58,10 @@ export default async function Navbar() {
             <div className="flex items-center">
               {user && (
                 <div>
-                  <button className={`${s.link} px-1`}>Share</button>
-                  <button className={`${s.publish} px-1`}>Upload Scan</button>
+                  {/* <button className={`${s.link} px-1`}>Share</button> */}
+                  <div className={`${s.publish} px-1`}>
+                    <ImageUpload />
+                  </div>
                 </div>
               )}
 

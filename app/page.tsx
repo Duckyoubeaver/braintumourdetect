@@ -16,12 +16,12 @@ const Home = async () => {
       <header
         className={`${s.header} text-center text-4xl font-bold text-black mb-8`}
       >
-        NeuroVision Tumour Classification
+        Accurate Patient Care Starts Here
       </header>
       <div className="max-w-3xl mx-auto mb-8">
         <p className="text-center text-xl text-black mb-6">
-          Empowering Radiologists with Advanced AI Technology for Accurate Brain
-          Tumor Diagnosis.
+          Empowering Neuroradiologists with Complementary AI Technology for
+          Brain Tumor Diagnosis.
         </p>
 
         {/* Centered "Get Started" button */}
