@@ -1,5 +1,5 @@
-import { createServerSupabaseClient } from '@/app/supabase-server';
 import ScansClient from './ScansClient';
+import { createServerSupabaseClient } from '@/app/supabase-server';
 
 interface ScansProps {
   userId: string;

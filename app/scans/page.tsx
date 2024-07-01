@@ -1,6 +1,7 @@
-import { Suspense } from 'react';
-import { createServerSupabaseClient } from '@/app/supabase-server';
 import Scans from './Server';
+import UserIdDisplay from './UserIdDisplay';
+import { createServerSupabaseClient } from '@/app/supabase-server';
+import { Suspense } from 'react';
 
 export default async function ScansPage() {
   const supabase = createServerSupabaseClient();
@@ -15,7 +16,7 @@ export default async function ScansPage() {
 
   return (
     <Suspense fallback={<div>Loading scans...</div>}>
-      {/* @ts-expect-error Server Component */}
+      <UserIdDisplay userId={user.id} />
       <Scans userId={user.id} />
     </Suspense>
   );

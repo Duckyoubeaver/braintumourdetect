@@ -33,11 +33,11 @@ export default async function Navbar() {
             </Link>
             <div className="border-l h-12 border-gray-100 mx-2"></div>
             <div className="hidden space-x-0 mx-3 lg:block">
-              {user && (
+              {/* {user && (
                 <Link href="/scans" className={`${s.link}`}>
                   Scans
                 </Link>
-              )}
+              )} */}
 
               {user && (
                 <Link href="/patients" className={`${s.link}`}>
@@ -56,21 +56,6 @@ export default async function Navbar() {
           <div className="border-l h-12 border-gray-100 mx-2"></div>
           <div className="flex justify-between pt-1">
             <div className="flex items-center">
-              {user && (
-                <div>
-                  {/* <button className={`${s.link} px-1`}>Share</button> */}
-                  <div className={`${s.publish} px-1`}>
-                    <ImageUpload />
-                  </div>
-                </div>
-              )}
-
-              {user && (
-                <div>
-                  <div className="border-l h-12 border-gray-100 mx-2"></div>
-                </div>
-              )}
-
               <div className="flex justify-end flex-1 space-x-8">
                 {user ? (
                   <AccountDropdown />

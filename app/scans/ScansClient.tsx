@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
 import Popup from './Popup';
 import s from './Scans.module.css';
+import React, { useState } from 'react';
 
 interface Scan {
   name: string;

@@ -50,13 +50,16 @@
 // };
 
 // SupabaseProvider.tsx
+
 'use client';
 
-import { createContext, useContext, useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import type { Database } from '@/types_db';
 import { createPagesBrowserClient } from '@supabase/auth-helpers-nextjs';
 import { SupabaseClient } from '@supabase/auth-helpers-nextjs';
-import type { Database } from '@/types_db'; // Adjust path as necessary
+import { useRouter } from 'next/navigation';
+import { createContext, useContext, useEffect, useState } from 'react';
+
+// Adjust path as necessary
 
 type SupabaseContext = {
   supabase: SupabaseClient<Database>;
