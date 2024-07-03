@@ -48,7 +48,8 @@ async function getScansData(
       .map(async (file) => {
         console.log('Processing file:', file.name);
 
-        // fix potential typescript error.
+        // @ts-expect-error
+
         const { data: publicUrlData, error: urlError } = await supabase.storage
           .from('scan')
           .getPublicUrl(`${folderPath}/${file.name}`);

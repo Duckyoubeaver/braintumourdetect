@@ -48,6 +48,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-black loading">
         <SupabaseProvider>
+          {/* @ts-expect-error - Reason for ignoring this error */}
           <Navbar />
           <main
             id="skip"

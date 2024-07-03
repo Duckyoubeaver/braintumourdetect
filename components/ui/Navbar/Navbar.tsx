@@ -1,9 +1,9 @@
 import AccountDropdown from './Account';
 import s from './Navbar.module.css';
 import { createServerSupabaseClient } from '@/app/supabase-server';
-import ImageUpload from '@/components/Upload';
 import Logo from '@/components/icons/Logo';
 import Link from 'next/link';
+import SignOutButton from './SignOutButton';
 
 export default async function Navbar() {
   const supabase = createServerSupabaseClient();
@@ -58,7 +58,7 @@ export default async function Navbar() {
             <div className="flex items-center">
               <div className="flex justify-end flex-1 space-x-8">
                 {user ? (
-                  <AccountDropdown />
+                  <SignOutButton />
                 ) : (
                   <Link href="/signin" className={`${s.link}`}>
                     Sign in

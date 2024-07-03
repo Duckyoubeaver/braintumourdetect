@@ -27,14 +27,14 @@ const AccountDropdown = () => {
           {' '}
           {/* Changed background to black and text color to white */}
           <div className="py-2 flex items-center justify-center">
-            <Link href="/account" className={`${s.link} text-xs`}>
+            {/* <Link href="/account" className={`${s.link} text-xs`}>
               Account
-            </Link>
+            </Link> */}
             <SignOutButton />
-            <button className={`${s.link} text-xs`}>Upgrade</button>
-            <Link href="/pricing" className={`${s.link} text-xs`}>
+            {/* <button className={`${s.link} text-xs`}>Upgrade</button> */}
+            {/* <Link href="/pricing" className={`${s.link} text-xs`}>
               Pricing
-            </Link>
+            </Link> */}
           </div>
         </div>
       )}

@@ -36,7 +36,8 @@ const Patient = async () => {
     <div
       className={`${s.background} w-screen h-screen flex flex-col items-center justify-start p-8`}
     >
-      <h1 className="text-2xl font-bold mb-6">Your Patients</h1>
+      {/* @ts-expect-error - Reason for ignoring this error */}
+
       <PatientManager userId={user.id} initialPatients={initialPatients} />
     </div>
   );

@@ -7,7 +7,7 @@ export default async function SignIn() {
   const session = await getSession();
   //Changing Authentication Route redirect to scan
   if (session) {
-    return redirect('/scans');
+    return redirect('/patients');
   }
 
   return (
