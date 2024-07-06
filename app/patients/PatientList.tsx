@@ -17,7 +17,11 @@ const PatientList: React.FC<PatientListProps> = ({ patients, onDelete }) => {
   const [loading, setLoading] = useState<string | null>(null);
 
   if (!patients || patients.length === 0) {
-    return <p>No patients found.</p>;
+    return (
+      <p className="text-black ml-2">
+        Click the blue add button to add your first patient folder.
+      </p>
+    );
   }
 
   const handleDelete = async (patientName: string, e: React.MouseEvent) => {
@@ -56,7 +60,8 @@ const PatientList: React.FC<PatientListProps> = ({ patients, onDelete }) => {
         <div key={index} className={styles.patientButtonWrapper}>
           <Link
             href={`/patients/${encodeURIComponent(patient.name)}`}
-            className={styles.cardButton}
+            className={`${styles.cardButton} text-black`}
+            style={{ marginRight: '0.5rem' }}
           >
             <span className={styles.cardTitle}>{patient.name}</span>
           </Link>

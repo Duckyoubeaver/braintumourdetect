@@ -9,9 +9,13 @@ interface PopupProps {
 }
 
 interface ModelOutput {
-  class: number;
-  confidence: number;
+  binaryPrediction: string;
+  binaryProbability: number;
+  tumorType?: number;
+  probabilities?: number[];
 }
+
+const tumorTypes = ['Glioma', 'Meningioma', 'Pituitary'];
 
 const Popup: React.FC<PopupProps> = ({ onClose, name, dateAdded, url }) => {
   const [modelOutput, setModelOutput] = useState<ModelOutput | null>(null);
@@ -22,49 +26,76 @@ const Popup: React.FC<PopupProps> = ({ onClose, name, dateAdded, url }) => {
     const runInference = async () => {
       setLoading(true);
       setInferenceError(null);
+      console.log('Starting inference...');
       try {
-        // Fetch the image file
-        const imageResponse = await fetch(url);
-        const imageBlob = await imageResponse.blob();
+        // Fetch the image from Supabase
+        const response = await fetch(url);
+        console.log('Fetched image from URL:', url);
+        const imageBlob = await response.blob();
 
-        // Create form data and append the image
+        // Create a FormData object to send the image file
         const formData = new FormData();
         formData.append('image', imageBlob, 'image.jpg');
 
-        // Send the form data to the API
-        const response = await fetch('/api/run-model', {
-          method: 'POST',
-          body: formData
-        });
+        // Send the image to the Flask endpoint
+        const flaskResponse = await fetch(
+          'https://neurovision-ebspx5jtpa-ts.a.run.app/predict',
+          {
+            method: 'POST',
+            body: formData
+          }
+        );
 
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(
-            `Server error: ${errorData.message || response.statusText}`
-          );
+        if (!flaskResponse.ok) {
+          throw new Error('Error making prediction request');
         }
 
-        const result = await response.json();
-        setModelOutput(result.output);
+        const predictionResult = await flaskResponse.json();
+        console.log('Prediction result:', predictionResult);
+
+        setModelOutput({
+          binaryPrediction: predictionResult.binary_prediction,
+          binaryProbability: predictionResult.binary_probability,
+          tumorType: predictionResult.tumor_type,
+          probabilities: predictionResult.probabilities
+        });
       } catch (error) {
-        console.error('Error running the model:', error);
+        console.error('Error running inference:', error);
         setInferenceError(
           error instanceof Error ? error.message : String(error)
         );
       } finally {
         setLoading(false);
+        console.log('Inference completed');
       }
     };
 
     runInference();
-  }, [url]); // Dependency array includes url to rerun inference if the url changes
+  }, [url]);
+
+  const renderBarChart = (probabilities?: number[]) => {
+    if (!probabilities) return null;
+
+    const maxProbability = Math.max(...probabilities);
+    return (
+      <div className={s.barChart}>
+        {probabilities.map((prob, index) => (
+          <div key={index} className={s.barChartItem}>
+            <div
+              className={s.bar}
+              style={{ width: `${(prob / maxProbability) * 100}%` }}
+            >
+              {tumorTypes[index]}: {Math.round(prob * 100)}%
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  };
 
   return (
     <div className={s.popupOverlay} onClick={onClose}>
       <div className={s.popupContent} onClick={(e) => e.stopPropagation()}>
-        {/* <button className={s.closeButton} onClick={onClose}>
-          Close
-        </button> */}
         <div className={s.popupLayout}>
           <div className={s.imageContainer}>
             <img
@@ -77,21 +108,41 @@ const Popup: React.FC<PopupProps> = ({ onClose, name, dateAdded, url }) => {
           <div className={s.infoContainer}>
             <div className={s.shadowBox}>
               <h3>Inference Statistics</h3>
-              {modelOutput ? (
+              {loading ? (
+                <p>Running inference...</p>
+              ) : modelOutput ? (
                 <>
                   <div className={s.statistic}>
-                    <span className={s.largeNumber}>{modelOutput.class}</span>
-                    <span className={s.subheading}>Predicted Class</span>
+                    <span className={s.largeNumber}>
+                      {modelOutput.binaryPrediction === 'yes'
+                        ? 'Tumor'
+                        : 'No Tumor'}
+                    </span>
+                    <span className={s.subheading}>Binary Prediction</span>
                   </div>
                   <div className={s.statistic}>
                     <span className={s.largeNumber}>
-                      {(modelOutput.confidence * 100).toFixed(2)}%
+                      {Math.round(modelOutput.binaryProbability * 100)}%
                     </span>
-                    <span className={s.subheading}>Confidence</span>
+                    <span className={s.subheading}>Binary Probability</span>
                   </div>
+                  {modelOutput.tumorType !== undefined && (
+                    <>
+                      <div className={s.statistic}>
+                        <span className={s.largeNumber}>
+                          {tumorTypes[modelOutput.tumorType]}
+                        </span>
+                        <span className={s.subheading}>Tumor Type</span>
+                      </div>
+                      <div className={s.statistic}>
+                        <span className={s.largeNumber}>Probabilities</span>
+                        {renderBarChart(modelOutput.probabilities)}
+                      </div>
+                    </>
+                  )}
                 </>
               ) : (
-                <p>Running inference...</p>
+                <p>No inference results available</p>
               )}
               <p className={s.disclaimer}>
                 Our model may make mistakes. Please use results with caution.

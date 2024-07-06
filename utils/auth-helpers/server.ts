@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 'use server';
 
 import { createClient } from '@/utils/supabase/server';
@@ -34,7 +36,7 @@ export async function SignOut(formData: FormData) {
 
 export async function signInWithEmail(formData: FormData) {
   const cookieStore = cookies();
-  const callbackURL = getURL('/auth/callback');
+  const callbackURL = getURL();
 
   const email = String(formData.get('email')).trim();
   let redirectPath: string;
@@ -87,7 +89,7 @@ export async function signInWithEmail(formData: FormData) {
 }
 
 export async function requestPasswordUpdate(formData: FormData) {
-  const callbackURL = getURL('/auth/reset_password');
+  const callbackURL = getURL();
 
   // Get form data
   const email = String(formData.get('email')).trim();
@@ -164,7 +166,7 @@ export async function signInWithPassword(formData: FormData) {
 }
 
 export async function signUp(formData: FormData) {
-  const callbackURL = getURL('/auth/callback');
+  const callbackURL = getURL();
 
   const email = String(formData.get('email')).trim();
   const password = String(formData.get('password')).trim();

@@ -1,3 +1,5 @@
+'use server';
+
 import DocComponent from './Docs';
 import s from './Documentation.module.css';
 import {

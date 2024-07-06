@@ -88,6 +88,12 @@ const ImageUploadButton: React.FC<ImageUploadButtonProps> = ({
           throw new Error(data.error || 'Upload failed');
         }
         console.log('File uploaded successfully!', data);
+
+        // Alert the user and refresh the page
+        window.alert(
+          'File uploaded successfully! Please refresh the page to see the updated content.'
+        );
+        window.location.reload();
       } else {
         const text = await response.text();
         console.error('Unexpected response:', text);

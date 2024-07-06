@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { toDateTime } from './helpers';
 import { stripe } from './stripe';
 import { createClient } from '@supabase/supabase-js';

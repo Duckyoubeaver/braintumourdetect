@@ -1,3 +1,5 @@
+'use server';
+
 import AuthUI from './AuthUI';
 import { getSession } from '@/app/supabase-server';
 import Logo from '@/components/icons/Logo';

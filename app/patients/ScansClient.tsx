@@ -33,7 +33,7 @@ const ScansClient: React.FC<ScansClientProps> = ({ initialScans }) => {
   const [selectedScan, setSelectedScan] = useState<Scan | null>(null);
 
   useEffect(() => {
-    console.log('Initial scans:', initialScans);
+    // console.log('Initial scans:', initialScans);
     setScans(initialScans);
   }, [initialScans]);
 

@@ -50,3 +50,7 @@ a {
 .height-screen-helper {
   height: calc(100vh - 80px);
 }
+
+.hide-forgot-password a[href='#auth-forgot-password'] {
+  display: none !important;
+}

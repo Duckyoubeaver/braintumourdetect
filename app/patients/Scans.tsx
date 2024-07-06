@@ -77,9 +77,9 @@ async function getScansData(
 }
 
 export default async function Scans({ userId, patientName }: ScansProps) {
-  console.log('Fetching scans for user:', userId, 'and patient:', patientName);
+  // console.log('Fetching scans for user:', userId, 'and patient:', patientName);
   const scansData = await getScansData(userId, patientName);
-  console.log('Scans data:', scansData); // Detailed logging of fetched scan data
+  // console.log('Scans data:', scansData); // Detailed logging of fetched scan data
 
   return <ScansClient initialScans={scansData} />;
 }
