@@ -1,34 +1,14 @@
-'use server';
-
-import DocComponent from './Docs';
-import s from './Documentation.module.css';
-import {
-  getSession,
-  getUserDetails,
-  getSubscription
-} from '@/app/supabase-server';
-import { redirect } from 'next/navigation';
+// app/documentation/page.tsx
 import React from 'react';
+import s from './Documentation.module.css'; // Import the CSS module
 
-const Documentation = async () => {
-  const [session, userDetails, subscription] = await Promise.all([
-    getSession(),
-    getUserDetails(),
-    getSubscription()
-  ]);
-
-  const user = session?.user;
-
-  if (!session) {
-    return redirect('/signin');
-  }
+const DocumentationPage: React.FC = () => {
   return (
-    <div
-      className={`${s.background} w-screen h-screen flex items-center justify-center`}
-    >
-      <DocComponent />
+    <div className={s.contentSection}>
+      <h1>Documentation</h1>
+      <p>Welcome to the documentation. Select a section from the sidebar.</p>
     </div>
   );
 };
 
-export default Documentation;
+export default DocumentationPage;

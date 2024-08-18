@@ -11,6 +11,7 @@ interface Scan {
   name: string;
   dateAdded: string;
   url: string;
+  value: number; // Ensure this matches what ScansClient expects
 }
 
 async function getScansData(
@@ -44,7 +45,7 @@ async function getScansData(
 
   const scans = await Promise.all(
     files
-      .filter((file) => !file.name.endsWith('.keep')) // Exclude .keep files
+      .filter((file) => !file.name.endsWith('.keep'))
       .map(async (file) => {
         console.log('Processing file:', file.name);
 

@@ -46,7 +46,8 @@ const PatientManager: React.FC<PatientManagerProps> = ({ initialPatients }) => {
         throw new Error('Failed to create patient');
       }
 
-      fetchPatients();
+      await fetchPatients();
+      alert('Patient added successfully!');
     } catch (error) {
       console.error('Failed to create patient:', error);
       alert('Patient names must be unique. Please use a different name.');

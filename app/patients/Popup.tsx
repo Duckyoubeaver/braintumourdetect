@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import s from './Scans.module.css';
+import s from './Scans.module.css'; // Make sure this path is correct for your CSS file
 
 interface PopupProps {
   onClose: () => void;
@@ -28,16 +28,13 @@ const Popup: React.FC<PopupProps> = ({ onClose, name, dateAdded, url }) => {
       setInferenceError(null);
       console.log('Starting inference...');
       try {
-        // Fetch the image from Supabase
         const response = await fetch(url);
         console.log('Fetched image from URL:', url);
         const imageBlob = await response.blob();
 
-        // Create a FormData object to send the image file
         const formData = new FormData();
         formData.append('image', imageBlob, 'image.jpg');
 
-        // Send the image to the Flask endpoint
         const flaskResponse = await fetch(
           'https://neurovision-ebspx5jtpa-ts.a.run.app/predict',
           {
@@ -77,22 +74,34 @@ const Popup: React.FC<PopupProps> = ({ onClose, name, dateAdded, url }) => {
     if (!probabilities) return null;
 
     const maxProbability = Math.max(...probabilities);
+    const chartHeight = 130; // Slightly reduced to accommodate text above bars
+    const maxBarHeight = chartHeight * 0.9; // 90% of chart height as maximum
+
     return (
       <div className={s.barChart}>
-        {probabilities.map((prob, index) => (
-          <div key={index} className={s.barChartItem}>
-            <div
-              className={s.bar}
-              style={{ width: `${(prob / maxProbability) * 100}%` }}
-            >
-              {tumorTypes[index]}: {Math.round(prob * 100)}%
+        {probabilities.map((prob, index) => {
+          const barHeight = Math.min(
+            (prob / maxProbability) * chartHeight,
+            maxBarHeight
+          );
+          return (
+            <div key={index} className={s.barChartItem}>
+              <div
+                className={s.bar}
+                style={{
+                  height: `${barHeight}px`,
+                  minHeight: '20px'
+                }}
+              >
+                <span className={s.barText}>{Math.round(prob * 100)}%</span>
+              </div>
+              <div className={s.barLabel}>{tumorTypes[index]}</div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     );
   };
-
   return (
     <div className={s.popupOverlay} onClick={onClose}>
       <div className={s.popupContent} onClick={(e) => e.stopPropagation()}>

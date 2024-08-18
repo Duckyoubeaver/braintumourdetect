@@ -12,13 +12,19 @@ const NewPatientPopup: React.FC<NewPatientPopupProps> = ({
   onClose
 }) => {
   const [name, setName] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const popupRef = useRef<HTMLDivElement>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (name.trim()) {
-      onAddPatient(name.trim());
-      setName('');
+      setIsSubmitting(true);
+      try {
+        await onAddPatient(name.trim());
+        setName('');
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
 
@@ -56,18 +62,21 @@ const NewPatientPopup: React.FC<NewPatientPopupProps> = ({
             placeholder="Patient Name"
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
+            disabled={isSubmitting}
           />
           <div className="mt-4 flex justify-end space-x-2 items-center">
             <button
               type="button"
               onClick={handleCancelClick}
               className="px-4 py-2 text-gray-600 hover:text-gray-800 transform transition-transform duration-300 ease-in-out hover:rotate-12"
+              disabled={isSubmitting}
             >
               Cancel
             </button>
             <button
               type="submit"
               className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transform transition-transform duration-300 ease-in-out hover:rotate-12"
+              disabled={isSubmitting}
             >
               Add Patient
             </button>

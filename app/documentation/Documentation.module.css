@@ -1,3 +1,58 @@
+/* app/Documentation.module.css */
+
+.docContainer {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background-color: #ffffff;
+}
+
+.sidebar {
+  width: 194px;
+  background-color: #f8f8f8;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+}
+
+.sidebarLink {
+  display: block;
+  padding: 0.5rem 0;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-size: 0.9rem; /* Adjust this value to make the text smaller */
+}
+
+.sidebarLink:hover,
+.sidebarLink.activeSection {
+  color: #3b82f6;
+}
+
+.mainContent {
+  flex-grow: 1;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.activeSection {
+  background-color: #f0f0f0;
+  padding: 1rem;
+  color: #000000;
+}
+
+/* Add styles for content section */
+.contentSection {
+  color: #000000; /* Black text */
+  margin: 0 15px; /* Add left and right margin */
+}
+
+.contentSection h1 {
+  font-weight: bold; /* Bold title */
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
 .background {
   background-color: #ffffff; /* Change to your desired background color */
 }

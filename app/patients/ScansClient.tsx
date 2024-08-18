@@ -3,6 +3,9 @@
 import Popup from './Popup';
 import s from './Scans.module.css';
 import React, { useState, useEffect } from 'react';
+import { TiDeleteOutline } from 'react-icons/ti';
+import { FaSpinner } from 'react-icons/fa';
+import { usePathname } from 'next/navigation'; // Import usePathname
 
 interface Scan {
   name: string;
@@ -31,15 +34,50 @@ const ScansClient: React.FC<ScansClientProps> = ({ initialScans }) => {
   const [scans, setScans] = useState<Scan[]>(initialScans);
   const [showPopup, setShowPopup] = useState(false);
   const [selectedScan, setSelectedScan] = useState<Scan | null>(null);
+  const [loading, setLoading] = useState<string | null>(null); // Track which scan is being deleted
+  const pathname = usePathname(); // Use usePathname to get the current path
 
   useEffect(() => {
-    // console.log('Initial scans:', initialScans);
     setScans(initialScans);
   }, [initialScans]);
 
   const handlePopupToggle = (scan: Scan) => {
     setSelectedScan(scan);
     setShowPopup(!showPopup);
+  };
+
+  const handleDelete = async (scan: Scan) => {
+    if (window.confirm(`Are you sure you want to delete ${scan.name}?`)) {
+      setLoading(scan.name);
+      try {
+        // Extract folder path from URL
+        const folderPath = pathname
+          ? pathname.split('/').pop() || 'default-folder'
+          : 'default-folder';
+
+        const response = await fetch(
+          `/api/delete-image?folderPath=${encodeURIComponent(
+            folderPath
+          )}&fileName=${encodeURIComponent(scan.name)}`,
+          {
+            method: 'DELETE'
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error('Failed to delete scan');
+        }
+
+        setScans((prevScans) =>
+          prevScans.filter((item) => item.name !== scan.name)
+        );
+      } catch (error) {
+        console.error('Error deleting scan:', error);
+        alert('Failed to delete scan. Please try again.');
+      } finally {
+        setLoading(null);
+      }
+    }
   };
 
   if (scans.length === 0) {
@@ -55,7 +93,7 @@ const ScansClient: React.FC<ScansClientProps> = ({ initialScans }) => {
       >
         <thead>
           <tr>
-            <th className="font-medium text-lg text-left pl-5 pt-6 pb-4">
+            <th className="font-medium text-lg text-center pl-5 pt-6 pb-4">
               Uploaded Brain Scans
             </th>
           </tr>
@@ -63,7 +101,7 @@ const ScansClient: React.FC<ScansClientProps> = ({ initialScans }) => {
         <tbody>
           {scans.map((scan, index) => (
             <tr key={index}>
-              <td className="pl-4">
+              <div className={`${s.scanItem} flex items-start`}>
                 <button
                   className={`${s.scanButton} ${s.smallerButton} text-left w-full`}
                   onClick={() => handlePopupToggle(scan)}
@@ -74,7 +112,19 @@ const ScansClient: React.FC<ScansClientProps> = ({ initialScans }) => {
                     {formatDate(scan.dateAdded)}
                   </span>
                 </button>
-              </td>
+                <button
+                  onClick={() => handleDelete(scan)}
+                  className={s.deleteButton}
+                  aria-label={`Delete ${scan.name}`}
+                  disabled={loading === scan.name}
+                >
+                  {loading === scan.name ? (
+                    <FaSpinner className={s.spinner} />
+                  ) : (
+                    <TiDeleteOutline />
+                  )}
+                </button>
+              </div>
             </tr>
           ))}
         </tbody>

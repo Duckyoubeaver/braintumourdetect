@@ -1,3 +1,56 @@
+.mainContainer {
+  margin-left: 80px; /* Adjust this value to move everything further to the right */
+  margin-right: 90px; /* Adjust this value to move everything further to the right */
+}
+
+.docContainer {
+  display: flex;
+  width: 90%;
+  height: 100vh;
+  background-color: #ffffff;
+  margin-left: 80px; /* Adjust this value to move everything further to the right */
+  margin-right: 90px; /* Adjust this value to move everything further to the right */
+}
+
+.sidebar {
+  width: 194px;
+  background-color: #f5f5f5;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  margin-left: 80px; /* Adjust this value to move everything further to the right */
+  margin-right: 90px; /* Adjust this value to move everything further to the right */
+}
+
+.sidebarLink {
+  display: block;
+  padding: 0.5rem 0;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.sidebarLink:hover,
+.sidebarLink.activeSection {
+  color: rgb(38, 106, 240);
+}
+
+.mainContent {
+  flex-grow: 1;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.activeSection {
+  background-color: #0077ff37;
+  padding: 1rem;
+  color: #000000;
+}
+
+.contentSection {
+  color: #000000; /* Black text */
+}
+
 .background {
   background-color: #ffffff;
 }
@@ -7,6 +60,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 1rem; /* Reduced from 2rem */
+  /* background-color: #ff0000; */
 }
 
 .listSection {
@@ -17,14 +71,17 @@
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
-  padding: 0 0.5rem;
+  padding: 0 0.65rem;
+  margin-left: 80px; /* Adjust this value to move everything further to the right */
+  margin-right: 90px; /* Adjust this value to move everything further to the right */
 }
 
 .sectionTitle {
-  font-size: 1.5rem;
+  font-size: 20px;
   font-weight: bold;
-  margin-right: 0.5rem;
+  margin-right: 0.4rem;
   color: black;
+  margin-top: -30px;
 }
 
 .addButton {
@@ -33,6 +90,7 @@
   color: #3b82f6;
   cursor: pointer;
   transition: color 0.2s;
+  margin-top: -30px;
 }
 
 .addButton:hover {
@@ -50,14 +108,14 @@
   position: relative;
   width: 100%;
   max-width: 350px;
-  margin: 0.5rem;
+  margin: 0.45rem;
 }
 
 .cardButton {
   background-color: #ffffff;
-  border: 1px solid #ddd;
+  border: 0.5px solid #ddd;
   border-radius: 6px;
-  padding: 1rem;
+  padding: 0.7rem;
   text-align: left;
   font-size: 1rem;
   color: #333;
@@ -66,9 +124,8 @@
   display: flex;
   flex-direction: column;
   height: 120px;
-  width: 100%;
+  width: 99%;
   position: relative;
-  margin-right: 0.5rem;
 }
 
 .cardButton:hover {
@@ -78,7 +135,7 @@
 .cardTitle {
   font-size: 1.2rem;
   font-weight: normal;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.45rem;
   color: black;
 }
 

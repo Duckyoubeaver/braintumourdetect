@@ -18,7 +18,7 @@ const PatientList: React.FC<PatientListProps> = ({ patients, onDelete }) => {
 
   if (!patients || patients.length === 0) {
     return (
-      <p className="text-black ml-2">
+      <p className="text-black ml-[85px]">
         Click the blue add button to add your first patient folder.
       </p>
     );
@@ -55,30 +55,32 @@ const PatientList: React.FC<PatientListProps> = ({ patients, onDelete }) => {
   };
 
   return (
-    <div className={styles.patientGrid}>
-      {patients.map((patient, index) => (
-        <div key={index} className={styles.patientButtonWrapper}>
-          <Link
-            href={`/patients/${encodeURIComponent(patient.name)}`}
-            className={`${styles.cardButton} text-black`}
-            style={{ marginRight: '0.5rem' }}
-          >
-            <span className={styles.cardTitle}>{patient.name}</span>
-          </Link>
-          <button
-            onClick={(e) => handleDelete(patient.name, e)}
-            className={styles.deleteButton}
-            aria-label={`Delete ${patient.name}`}
-            disabled={loading === patient.name}
-          >
-            {loading === patient.name ? (
-              <FaSpinner className={styles.spinner} />
-            ) : (
-              <TiDeleteOutline />
-            )}
-          </button>
-        </div>
-      ))}
+    <div className={styles.mainContainer}>
+      <div className={styles.listHeader}></div>
+      <div className={styles.patientGrid}>
+        {patients.map((patient, index) => (
+          <div key={index} className={styles.patientButtonWrapper}>
+            <Link
+              href={`/patients/${encodeURIComponent(patient.name)}`}
+              className={`${styles.cardButton} text-black`}
+            >
+              <span className={styles.cardTitle}>{patient.name}</span>
+            </Link>
+            <button
+              onClick={(e) => handleDelete(patient.name, e)}
+              className={styles.deleteButton}
+              aria-label={`Delete ${patient.name}`}
+              disabled={loading === patient.name}
+            >
+              {loading === patient.name ? (
+                <FaSpinner className={styles.spinner} />
+              ) : (
+                <TiDeleteOutline />
+              )}
+            </button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
