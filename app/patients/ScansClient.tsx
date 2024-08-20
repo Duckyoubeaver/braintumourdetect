@@ -46,15 +46,17 @@ const ScansClient: React.FC<ScansClientProps> = ({ initialScans }) => {
     setShowPopup(!showPopup);
   };
 
+  // Delete the scan
   const handleDelete = async (scan: Scan) => {
     if (window.confirm(`Are you sure you want to delete ${scan.name}?`)) {
-      setLoading(scan.name);
+      setLoading(scan.name); // Set loading state to the name of the scan being deleted
       try {
-        // Extract folder path from URL
+        // Extract folder path from URL for the custom API request
         const folderPath = pathname
           ? pathname.split('/').pop() || 'default-folder'
           : 'default-folder';
 
+        // Make a DELETE request to the custom API to delete the scan
         const response = await fetch(
           `/api/delete-image?folderPath=${encodeURIComponent(
             folderPath
@@ -64,6 +66,7 @@ const ScansClient: React.FC<ScansClientProps> = ({ initialScans }) => {
           }
         );
 
+        // If the response is not ok, throw an error
         if (!response.ok) {
           throw new Error('Failed to delete scan');
         }
@@ -72,10 +75,10 @@ const ScansClient: React.FC<ScansClientProps> = ({ initialScans }) => {
           prevScans.filter((item) => item.name !== scan.name)
         );
       } catch (error) {
-        console.error('Error deleting scan:', error);
-        alert('Failed to delete scan. Please try again.');
+        console.error('Error deleting scan:', error); // Log any errors to the console
+        alert('Failed to delete scan. Please try again.'); // Show an alert to the user if deletion fails
       } finally {
-        setLoading(null);
+        setLoading(null); // Reset loading state on the UI
       }
     }
   };
@@ -101,30 +104,34 @@ const ScansClient: React.FC<ScansClientProps> = ({ initialScans }) => {
         <tbody>
           {scans.map((scan, index) => (
             <tr key={index}>
-              <div className={`${s.scanItem} flex items-start`}>
-                <button
-                  className={`${s.scanButton} ${s.smallerButton} text-left w-full`}
-                  onClick={() => handlePopupToggle(scan)}
-                >
-                  {scan.name}
-                  <br />
-                  <span className={s.dateAdded}>
-                    {formatDate(scan.dateAdded)}
-                  </span>
-                </button>
-                <button
-                  onClick={() => handleDelete(scan)}
-                  className={s.deleteButton}
-                  aria-label={`Delete ${scan.name}`}
-                  disabled={loading === scan.name}
-                >
-                  {loading === scan.name ? (
-                    <FaSpinner className={s.spinner} />
-                  ) : (
-                    <TiDeleteOutline />
-                  )}
-                </button>
-              </div>
+              <td className="p-0">
+                <div className={`${s.scanItem} flex items-start`}>
+                  <button
+                    className={`${s.scanButton} ${s.smallerButton} text-left w-full`}
+                    onClick={() => handlePopupToggle(scan)}
+                    title="Click on this scan to see results"
+                  >
+                    {scan.name}
+                    <br />
+                    <span className={s.dateAdded}>
+                      {formatDate(scan.dateAdded)}
+                    </span>
+                  </button>
+                  <button
+                    onClick={() => handleDelete(scan)}
+                    className={s.deleteButton}
+                    aria-label={`Delete ${scan.name}`}
+                    disabled={loading === scan.name}
+                    title="Click on this button to delete the scan"
+                  >
+                    {loading === scan.name ? (
+                      <FaSpinner className={s.spinner} />
+                    ) : (
+                      <TiDeleteOutline />
+                    )}
+                  </button>
+                </div>
+              </td>
             </tr>
           ))}
         </tbody>

@@ -8,7 +8,8 @@
 }
 
 .sidebar {
-  width: 194px;
+  position: fixed; /* Ensures the sidebar stays in place */
+  width: 203px;
   background-color: #f8f8f8;
   padding: 1rem;
   position: sticky;
@@ -43,16 +44,106 @@
 
 /* Add styles for content section */
 .contentSection {
+  max-width: 1200px; /* Fixed width for the content section */
+  margin: 0 auto; /* Center content horizontally */
+  padding: 16px;
+  background-color: #ffffff; /* Content background color */
   color: #000000; /* Black text */
-  margin: 0 15px; /* Add left and right margin */
 }
 
 .contentSection h1 {
   font-weight: bold; /* Bold title */
   font-size: 20px;
   margin-bottom: 10px;
+  padding-bottom: 20px;
+}
+
+.contentSection p,
+.contentSection img {
+  padding-bottom: 20px;
+}
+
+.contentSection img {
+  max-width: 70%; /* Reduce image size */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  padding-top: 50px; /* Added padding top */
+  padding-bottom: 50px; /* Added padding bottom */
 }
 
 .background {
   background-color: #ffffff; /* Change to your desired background color */
+}
+
+.blueLink {
+  color: #3b82f6; /* Blue color */
+  text-decoration: underline; /* Underline the text */
+}
+
+.blueLink:hover {
+  color: #2563eb; /* Slightly darker blue on hover */
+}
+
+.contactForm {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.inputField {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.checkbox,
+.radio {
+  margin-right: 0.5rem;
+}
+
+.submitButton {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  background-color: #0056b3;
+}
+
+.error {
+  color: red;
+  font-size: 0.875rem;
+}
+
+/* Container for ripple effect */
+.buttonContainer {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ripple effect styling */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+  transform: scale(0);
+  animation: ripple-animation 0.6s linear;
+}
+
+/* Ripple animation keyframes */
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
 }

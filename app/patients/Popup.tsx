@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import s from './Scans.module.css'; // Make sure this path is correct for your CSS file
+import s from './Scans.module.css'; // Import styles for the popup component
+import { IoIosClose } from 'react-icons/io'; // Import close icon
 
 interface PopupProps {
   onClose: () => void;
@@ -15,6 +16,7 @@ interface ModelOutput {
   probabilities?: number[];
 }
 
+// Array of tumor types corresponding to the prediction model's output
 const tumorTypes = ['Glioma', 'Meningioma', 'Pituitary'];
 
 const Popup: React.FC<PopupProps> = ({ onClose, name, dateAdded, url }) => {
@@ -27,14 +29,15 @@ const Popup: React.FC<PopupProps> = ({ onClose, name, dateAdded, url }) => {
       setLoading(true);
       setInferenceError(null);
       console.log('Starting inference...');
+
       try {
-        const response = await fetch(url);
+        const response = await fetch(url); // Fetch image from the provided image URL
         console.log('Fetched image from URL:', url);
         const imageBlob = await response.blob();
 
         const formData = new FormData();
         formData.append('image', imageBlob, 'image.jpg');
-
+        // Send the image to the Flask API for prediction
         const flaskResponse = await fetch(
           'https://neurovision-ebspx5jtpa-ts.a.run.app/predict',
           {
@@ -50,6 +53,7 @@ const Popup: React.FC<PopupProps> = ({ onClose, name, dateAdded, url }) => {
         const predictionResult = await flaskResponse.json();
         console.log('Prediction result:', predictionResult);
 
+        // Set the prediction results to the state
         setModelOutput({
           binaryPrediction: predictionResult.binary_prediction,
           binaryProbability: predictionResult.binary_probability,
@@ -67,15 +71,16 @@ const Popup: React.FC<PopupProps> = ({ onClose, name, dateAdded, url }) => {
       }
     };
 
-    runInference();
-  }, [url]);
+    runInference(); // Trigger inference
+  }, [url]); // Dependency array ensures the effect runs when `url` changes
 
+  // Renders a bar chart for the tumor type probabilities
   const renderBarChart = (probabilities?: number[]) => {
     if (!probabilities) return null;
 
-    const maxProbability = Math.max(...probabilities);
-    const chartHeight = 130; // Slightly reduced to accommodate text above bars
-    const maxBarHeight = chartHeight * 0.9; // 90% of chart height as maximum
+    const maxProbability = Math.max(...probabilities); // Find the maximum probability
+    const chartHeight = 130;
+    const maxBarHeight = chartHeight * 0.9; // Limit the maximum bar height to 90% of the chart height
 
     return (
       <div className={s.barChart}>
@@ -83,14 +88,15 @@ const Popup: React.FC<PopupProps> = ({ onClose, name, dateAdded, url }) => {
           const barHeight = Math.min(
             (prob / maxProbability) * chartHeight,
             maxBarHeight
-          );
+          ); // Scale bar height based on the probability value
+
           return (
             <div key={index} className={s.barChartItem}>
               <div
                 className={s.bar}
                 style={{
                   height: `${barHeight}px`,
-                  minHeight: '20px'
+                  minHeight: '20px' // Ensure a minimum bar height for visibility
                 }}
               >
                 <span className={s.barText}>{Math.round(prob * 100)}%</span>
@@ -102,16 +108,20 @@ const Popup: React.FC<PopupProps> = ({ onClose, name, dateAdded, url }) => {
       </div>
     );
   };
+
   return (
     <div className={s.popupOverlay} onClick={onClose}>
       <div className={s.popupContent} onClick={(e) => e.stopPropagation()}>
+        <div className={s.closeButton} onClick={onClose} title="Close results">
+          <IoIosClose size={24} />
+        </div>
         <div className={s.popupLayout}>
           <div className={s.imageContainer}>
             <img
               src={url}
               alt={name}
               className={s.popupImage}
-              onError={(e) => console.error('Image failed to load:', e)}
+              onError={(e) => console.error('Image failed to load:', e)} // Handle image load errors
             />
           </div>
           <div className={s.infoContainer}>

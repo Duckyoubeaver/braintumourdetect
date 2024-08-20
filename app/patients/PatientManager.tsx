@@ -4,7 +4,6 @@ import styles from './Patient.module.css';
 import NewPatientPopup from './NewPatientPopup';
 import PatientList from './PatientList';
 // @ts-ignore
-
 import { FileObject } from '@supabase/storage-js';
 import React, { useState } from 'react';
 import { IoIosAddCircle } from 'react-icons/io';
@@ -46,8 +45,9 @@ const PatientManager: React.FC<PatientManagerProps> = ({ initialPatients }) => {
         throw new Error('Failed to create patient');
       }
 
-      await fetchPatients();
       alert('Patient added successfully!');
+      // Force a full page reload
+      window.location.reload();
     } catch (error) {
       console.error('Failed to create patient:', error);
       alert('Patient names must be unique. Please use a different name.');
@@ -77,6 +77,7 @@ const PatientManager: React.FC<PatientManagerProps> = ({ initialPatients }) => {
             onClick={() => setIsPopupOpen(true)}
             className={styles.addButton}
             aria-label="Add new patient"
+            title="Click this button to add a new patient folder"
           >
             <IoIosAddCircle size={24} />
           </button>

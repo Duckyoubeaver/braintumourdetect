@@ -34,13 +34,21 @@ export default async function Navbar() {
             <div className="border-l h-12 border-gray-100 mx-2"></div>
             <div className="hidden space-x-0 mx-3 lg:block">
               {user && (
-                <Link href="/patients" className={`${s.link}`}>
+                <Link
+                  href="/patients"
+                  className={`${s.link}`}
+                  title="Click this button to go to the patients page"
+                >
                   Patients
                 </Link>
               )}
 
               {user && (
-                <Link href="/documentation" className={`${s.link}`}>
+                <Link
+                  href="/documentation/introduction"
+                  className={`${s.link}`}
+                  title="Click this button to go to the documentation page"
+                >
                   Documentation
                 </Link>
               )}
@@ -54,7 +62,11 @@ export default async function Navbar() {
                 {user ? (
                   <SignOutButton />
                 ) : (
-                  <Link href="/signin" className={`${s.link}`}>
+                  <Link
+                    href="/signin"
+                    className={`${s.link}`}
+                    title="Click this button to sign in"
+                  >
                     Sign in
                   </Link>
                 )}

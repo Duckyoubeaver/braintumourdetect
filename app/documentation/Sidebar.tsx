@@ -1,5 +1,8 @@
-import React from 'react';
+'use client'; // Ensure this is at the top
+
+import React, { useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import s from './Documentation.module.css';
 
 interface Section {
@@ -18,6 +21,15 @@ const Sidebar: React.FC<SidebarProps> = ({
   activeSection,
   setActiveSection
 }) => {
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const currentRoute = pathname.split('/').pop();
+    if (currentRoute) {
+      setActiveSection(currentRoute);
+    }
+  }, [pathname, setActiveSection]);
+
   return (
     <div className={s.sidebar}>
       <nav>

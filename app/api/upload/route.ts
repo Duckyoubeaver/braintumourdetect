@@ -34,7 +34,6 @@ export async function POST(request: Request) {
     );
   }
 
-  // Check if the file is a JPEG/JPG
   const isJpeg =
     fileName.toLowerCase().endsWith('.jpeg') ||
     fileName.toLowerCase().endsWith('.jpg');

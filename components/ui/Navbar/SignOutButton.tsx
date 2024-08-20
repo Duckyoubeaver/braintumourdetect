@@ -22,6 +22,7 @@ export default function SignOutButton() {
     <button
       className={`${s.link} text-xs`} // Use the same styles as the navbar links
       onClick={handleSignOut}
+      title="Click this button to log out"
     >
       Log Out
     </button>

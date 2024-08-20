@@ -1,5 +1,4 @@
-// app/documentation/layout.tsx
-'use client';
+'use client'; // Ensure this is at the top
 
 import React, { useState } from 'react';
 import Sidebar from './Sidebar';
@@ -8,9 +7,9 @@ import s from './Documentation.module.css';
 const sections = [
   { id: 'introduction', title: 'Introduction' },
   { id: 'getting-started', title: 'Getting Started' },
-  { id: 'features', title: 'Features' },
-  { id: 'video-demo', title: 'Video Demo' },
-  { id: 'faq', title: 'FAQ' }
+  { id: 'video-tutorial', title: 'Video Tutorial' },
+  { id: 'faq', title: 'FAQ' },
+  { id: 'contact', title: 'Contact' }
 ];
 
 const DocumentationLayout: React.FC<{ children: React.ReactNode }> = ({

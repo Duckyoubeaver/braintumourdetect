@@ -71,6 +71,7 @@ const PatientList: React.FC<PatientListProps> = ({ patients, onDelete }) => {
               className={styles.deleteButton}
               aria-label={`Delete ${patient.name}`}
               disabled={loading === patient.name}
+              title="This button deletes the patient folder"
             >
               {loading === patient.name ? (
                 <FaSpinner className={styles.spinner} />
